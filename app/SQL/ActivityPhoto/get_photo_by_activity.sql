@@ -1,0 +1,1 @@
+select * from activity_photo where activity_id = :activity_id;

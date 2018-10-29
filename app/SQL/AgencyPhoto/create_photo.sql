@@ -1,0 +1,1 @@
+insert into agency_photo (agency_id, path, photo_album_id) values (:agency_id, :path, :photo_album_id);

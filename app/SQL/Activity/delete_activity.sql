@@ -1,0 +1,1 @@
+delete from activity where id = :id;

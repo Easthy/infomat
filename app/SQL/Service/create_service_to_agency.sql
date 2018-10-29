@@ -1,0 +1,1 @@
+insert into service_to_agency (agency_id, service_id) values (:agency_id, :service_id);

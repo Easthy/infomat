@@ -1,0 +1,449 @@
+/* MAIN LAYOUT */
+html {
+	height: 100%;
+}
+
+body {
+	background-color: #e6edf2;
+	height: 100%;
+}
+
+#header nav {
+	height: 50px;
+	background-color: #00cc99 !important;
+	box-shadow: 0 0 50px -15px;
+}
+
+#content {
+	padding: 25px 15px 0 15px;
+}
+
+.sidebar {
+	width: 200px;
+	display: inline-block;
+	float: left;
+}
+
+.activity-page .sidebar .p-3, .service-page .sidebar .p-3 {
+	cursor: pointer;
+}
+
+.sidebar .active {
+	border-right: 4px solid #00CC99;
+	color: #00CC99;
+}
+
+.activity-page .sidebar .active, .service-page .sidebar .active {
+	background-color: #f1f7f8;
+}
+
+.container-main {
+	width: calc(100% - 200px);
+	display: inline-block;
+	height: 100%;
+	padding-left: 25px;
+	float: left;
+}
+
+.white-content {
+	background-color: white;
+	box-shadow: 0 0 20px -8px;
+	border-radius: 3px;
+}
+
+.block-main {
+	margin-top: 20px;
+}
+
+.block-main.single {
+	margin-top: 0;
+}
+
+label {
+	margin: 0;
+}
+/* NAV */
+#header .navbar {
+	padding: 0 1rem;
+}
+
+#header .navbar-brand {
+    color: #ffffff !important;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+#header .navbar-brand {
+	text-decoration: underline;
+}
+
+#header .nav-item {
+    font-size: 11px;
+    font-weight: 800;
+    height: 50px;
+    text-align: center;
+}
+
+#header .nav-link {
+	color: #ffffff !important;
+}
+
+@media (min-width: 1580px) {
+	#header .nav-item {
+	    line-height: 34px;
+	}
+}
+
+@media (max-width: 1250px) {
+	#header .nav-link, .navbar-brand {
+	    margin-right: 0 !important;
+	}
+
+	#header .nav-link {
+	    padding-left: .3rem;
+	    padding-right: .3rem;
+	}
+}
+
+#header .nav-item.active {
+	background-color: #00ad89;
+}
+
+#header .navbar-nav img {
+	height: 22px;
+	width: 22px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/* PAGE ELEMENTS */
+.block-top-title {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.sidebar-item-text {
+	font-size: 14px;
+	font-weight: 600;	
+}
+
+.sidebar-submenu {
+	background-color: #f1f7f8;	
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.item-toggle.collapsed {
+	width: 12px;
+	height: 12px;
+	background: url('/img/icons/plus_grey.png');
+}
+
+.item-toggle {
+	width: 12px;
+	height: 12px;
+	background-image: url('/img/icons/minus_green.png');
+}
+
+a.unstyled {
+	text-decoration: none;
+	color: inherit;
+}
+
+.row.active .highlighted-col {
+	color: #00CC99;
+}
+
+/* TEXT */
+.text-12 {
+	font-size: 12px;
+}
+.text-13 {
+	font-size: 13px;
+}
+
+.text-14 {
+	font-size: 14px;
+}
+
+.text-24 {
+	font-size: 24px;
+}
+
+.text-600 {
+	font-weight: 600;
+}
+
+.text-700 {
+	font-weight: 700;
+}
+
+.text-800 {
+	font-weight: 800;
+}
+
+.text-design-green {
+	color: #00CC99;
+}
+
+.text-design-grey {
+	color: #666666;
+}
+
+input.checkbox-round {
+    display:none;
+}
+ 
+input.checkbox-round + label
+{
+    background: url('/img/icons/checkbox.png');
+    height: 20px;
+    width: 20px;
+    display:inline-block;
+    padding: 0;
+}
+
+input.checkbox-round:checked + label
+{
+    background: url('/img/icons/checkbox_checked.png');
+    background-size: 20px 20px;
+    height: 20px;
+    width: 20px;
+    display:inline-block;
+    padding: 0;
+}
+
+.checkbox-label {
+	margin: 5px;
+}
+
+/* SCHEDULE */
+.schedule-text {
+	font-size: 13px;
+	font-weight: 700;
+}
+
+/* ABOUT */
+.subtitle-green {
+	font-size: 13px;
+	font-weight: 800;
+	color: #00CC99;
+}
+
+/* STAFF */
+.text-black-small-thick {
+	font-size: 14px;
+	font-weight: 700;	
+}
+
+.text-black-small-thin {
+	font-size: 14px;
+	font-weight: 400;	
+}
+
+.action-icon {
+	width: 18px;
+	height: 18px;
+	/*margin: 0 5px;*/
+}
+
+.btn-green {
+	background-color: #00CC99;
+	color: #fff;
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 24px;
+}
+
+.btn-dark-green {
+	background-color: #00ad89;
+	color: #fff;
+	line-height: 20px;
+}
+
+/* CONTANCT */
+.action-list {
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	cursor: pointer;
+	background-image: url('/img/icons/icon_action_list.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20px 20px;
+}
+
+.action-list.active {
+	background-image: url('/img/icons/icon_action_list_active.png');
+	background-color: #eee;
+}
+
+.contact-page .item-toggle.collapsed {
+	width: 12px;
+	height: 30px;
+	background: url('/img/icons/plus_grey.png') no-repeat center center;
+}
+
+.contact-page .item-toggle {
+	width: 12px;
+	height: 30px;
+	background: url('/img/icons/minus_green.png') no-repeat center center;
+}
+
+/* MODAL */
+.modal-header {
+    background-color: #00CC99;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.modal-close {
+	width: 20px;
+	height: 20px;
+	float: right;
+	cursor: pointer;
+}
+
+.modal-footer {
+    background-color: #f1f7f8;
+}
+
+.modal-footer .btn {
+	border-radius: 2px;
+	font-weight: 700;
+	font-size: 13px;
+	padding: 8px 30px;
+}
+
+.modal-footer .btn-save {
+	color: white;
+	background-color: #00CC99;
+}
+
+.modal-footer .btn-dismiss {
+	color: #666666;
+	border: 1px solid #bbbbbb;
+	background-color: white;
+}
+
+.modal form label {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.modal .nav-link {
+	border-color: #dee2e6 #dee2e6 #fff;
+	border-bottom: 1px solid #dee2e6;
+	color: #666666 !important;
+}
+
+.modal .nav-link.active {
+	color: #000 !important;
+}
+
+/* WICKEDPICKER */
+
+.timepicker {
+    width: 90px;
+    height: 38px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    color: grey;
+    font-size: 13px;
+    text-align: center;
+}
+
+.bootstrap-timepicker-widget {
+	min-width: 0;
+}
+
+.bootstrap-timepicker-hour, .bootstrap-timepicker-minute {
+	border: none;
+}
+
+.wickedpicker__controls__control-up {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 7px 6px;
+    border-color: transparent transparent #00cc99 transparent;
+    margin-bottom: 5px;
+}
+
+.wickedpicker__controls__control-up:before {
+    display: none;
+}
+
+.wickedpicker__controls__control-down {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 6px 0 6px;
+    border-color: #00cc99 transparent transparent transparent;
+    margin-top: 5px;
+}
+
+.wickedpicker__controls__control-down:after {
+    display: none;
+}
+
+/* TIMEPICKER */
+.bootstrap-timepicker-widget {
+	z-index: 10000 !important;
+}
+
+.bootstrap-timepicker-widget table td span {
+	width: 0;
+}
+
+/* ACTIVITIES */
+.in-list-photo {
+    max-width: 131px;
+    max-height: 88px;
+}
+
+.period input {
+    width: 38px;
+    border: none;
+}
+
+.form-group.period {
+    background-color: #f1f7f8;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+/* MANAGEMENT */
+.management-photo {
+	max-width: 70px;
+	max-height: 90px;
+}
+
+/* TOGGLE */
+
+.toggle.design {
+	height: 10px;
+	width: 80px;
+}
+
+.toggle .btn-design {
+	color: white;
+	font-size: 11px;
+	font-weight: 700;
+}
+.toggle-off.btn-design {
+	background-color: red;
+	text-align: right;
+}
+
+.toggle-on.btn-design {
+	background-color: #00cc99;
+	text-align: left;
+}
+
+.toggle.design .toggle-handle {
+	background-color: #ddd;
+	border-radius: 0;
+	width: 40px;
+}

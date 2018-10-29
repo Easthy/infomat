@@ -1,0 +1,1 @@
+delete from activity_photo where path like :filename;

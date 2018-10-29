@@ -1,0 +1,1 @@
+delete from service_to_agency where service_id in (:service_ids) and agency_id = :agency_id;

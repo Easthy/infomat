@@ -1,0 +1,1 @@
+delete from agency where id = :id;

@@ -1,0 +1,1 @@
+select id, text, counter from service_category left join (select category_id, count(1) as counter from service group by category_id) as service_by_cat on service_category.id = service_by_cat.category_id;

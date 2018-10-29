@@ -1,0 +1,1 @@
+delete from agency_management where id = :id and agency_id = :agency_id;

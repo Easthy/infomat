@@ -1,0 +1,1 @@
+insert into activity_photo (activity_id, path) values (:activity_id, :path);
