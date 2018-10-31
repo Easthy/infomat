@@ -28,7 +28,7 @@ App::uses('AppController', 'Controller');
  * @package       app.Controller
  * @link https://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
-class AuthController extends AppController {
+class UsersController extends AppController {
 
 /**
  * This controller does not use a model
@@ -50,11 +50,16 @@ class AuthController extends AppController {
 
 	public function beforeFilter() {
 	    parent::beforeFilter();
-	    // Allow users to register and logout.
-	    $this->Auth->allow('add', 'logout');
+	    // Allow users to logout, login.
+	    $this->Auth->allow('logout', 'login');
 	}
 
 	public function login() {
+        //if already logged-in, redirect
+        if($this->Session->check('Auth.User')){
+            $this->redirect(array('action' => 'index'));      
+        }
+
 	    if ($this->request->is('post')) {
 	        if ($this->Auth->login()) {
 	            return $this->redirect($this->Auth->redirectUrl());

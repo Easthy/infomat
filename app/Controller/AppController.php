@@ -31,6 +31,49 @@ App::uses('Controller', 'Controller');
  * @link		https://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+    public $components = array(
+        'Flash',
+        'Session',
+        'Auth' => array(
+            'loginRedirect' => array(
+                'controller' => 'home',
+                'action' => 'index'
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'users',
+                'action' => 'login',
+                'home'
+            ),
+            'authenticate' => array(
+                'Form' => array(
+                    'fields' => array(
+    				    'password' => 'password',
+    				    'username' => 'username'
+    				),
+    				'passwordHasher' => array(
+                    	'className' => 'Simple',
+                    	'hashType' => 'sha512'
+                	)
+                )
+            ),
+			'authError' => 'Войдите на сайт для просмотра запрошенной страницы.',
+        	'loginError' => 'Не удалось выполнить вход, попробуйте ещё раз.'
+        )
+    );
+
+	// only allow the login controllers only
+	public function beforeFilter() {
+	    $this->Auth->allow('login');
+	    // App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
+		// $passwordHasher = new SimplePasswordHasher(array('hashType' => 'sha512'));
+        // debug( $passwordHasher->hash('qwerty','sha512',true) );
+	}
+
+	public function isAuthorized($user) {
+    	// Here is where we should verify the role and give access based on role 
+    	return true;
+	}
+
 	public function beforeRender() {
 	    parent::beforeRender();
 
@@ -76,11 +119,5 @@ class AppController extends Controller {
         rename(WWW_ROOT.$path, WWW_ROOT.$dir.$filename);
 
         return $dir.$filename;
-    }
-
-    public function beforeFilter () {
-        if( !$this->Session->check('Auth') && !in_array($this->request->params['controller'],array('auth')) ){
-            $this->redirect('/auth');
-        }
     }
 }
