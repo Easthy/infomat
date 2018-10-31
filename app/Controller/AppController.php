@@ -77,4 +77,10 @@ class AppController extends Controller {
 
         return $dir.$filename;
     }
+
+    public function beforeFilter () {
+        if( !$this->Session->check('Auth') && !in_array($this->request->params['controller'],array('auth')) ){
+            $this->redirect('/auth');
+        }
+    }
 }
