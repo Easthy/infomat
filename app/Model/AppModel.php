@@ -28,6 +28,18 @@ class AppModel extends Model {
         return CakeSession::read('Auth.User.agency_id');
     }
     
+    public static function get_user_id(){
+        return CakeSession::read('Auth.User.id');
+    }
+    
+    public static function get_username(){
+        return CakeSession::read('Auth.User.username');
+    }
+
+    public static function get_user_role(){
+        return CakeSession::read('Auth.User.role');
+    }
+
     public function get_data($query_method, array $params=array(), $process_method=false){
         $params_ = array_merge(
             $params, 

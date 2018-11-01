@@ -134,7 +134,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 							<img src="/img/icons/icon_profile.png">
 						</li>
 						<li class="nav-item pull-right">
-							<a class="nav-link" href="#">Админ 1</a>
+							<a class="nav-link" href="#">
+								<?php echo AppModel::get_username();?>
+							</a>
 						</li>
 					</ul>
 				</div>
