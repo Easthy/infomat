@@ -29,6 +29,19 @@ CREATE DATABASE infomat WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE =
 ALTER DATABASE infomat OWNER TO postgres;
 
 \connect infomat
+=======
+DROP DATABASE infomat_qt;
+--
+-- TOC entry 2528 (class 1262 OID 16407660)
+-- Name: infomat_qt; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE infomat_qt WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'ru_RU.UTF-8' LC_CTYPE = 'ru_RU.UTF-8';
+
+
+ALTER DATABASE infomat_qt OWNER TO postgres;
+
+\connect infomat_qt
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
