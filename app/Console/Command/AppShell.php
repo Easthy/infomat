@@ -27,4 +27,35 @@ App::uses('Shell', 'Console');
  */
 class AppShell extends Shell {
 
+	public function create_users(){
+		$this->loadModel('User');
+		$this->loadModel('Agency');
+		$agencies = $this->Agency->query('SELECT id, fullname, shortname FROM public.agency;');
+		$agencies = HASH::extract($agencies,'{n}.{n}');
+		$length = 6;
+		foreach ($agencies as $ag) {
+			$password = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+			$username = 'infomat_'.$ag['id'];
+			$agency = $ag['shortname'];
+
+			$this->User->save(
+				array(
+					'username' => $username,
+					'password' => $password,
+					'agency_id'=> $ag['id'],
+					'role'	   => 0,
+					'created'  => date('d.m.Y H:i:s')
+				)
+			);
+			$user_id = $this->User->getLastInsertID();
+			$this->User->clear();
+
+			$data = array('user_id'=>$user_id,'agency_id'=> $ag['id'],'agency'=>$agency,'username'=>$username,'password'=>$password);
+			$data = join('	',$data);
+
+			$data = $data.PHP_EOL;
+			$fp = fopen(ROOT.DS.'passwords', 'a');
+			fwrite($fp, $data);
+		}
+	}
 }

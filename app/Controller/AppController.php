@@ -64,6 +64,7 @@ class AppController extends Controller {
 	// only allow the login controllers only
 	public function beforeFilter() {
 	    $this->Auth->allow('login');
+	    // debug($this->Session->read('Auth'));
 	    // App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 		// $passwordHasher = new SimplePasswordHasher(array('hashType' => 'sha512'));
         // debug( $passwordHasher->hash('qwerty','sha512',true) );
