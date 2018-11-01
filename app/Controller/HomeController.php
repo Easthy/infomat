@@ -58,7 +58,7 @@ class HomeController extends AppController {
 	        $this->autoRender   = false;
 
 	        $this->loadModel('Agency');
-	        $agency = $this->Agency->get_data('get_description', ['id' => 32]);
+	        $agency = $this->Agency->get_data('get_description', ['id' => AppModel::get_agency_id()]);
 
 	        echo $agency[0][0]['description'];		
 	    }
@@ -72,7 +72,7 @@ class HomeController extends AppController {
 	        $description = $this->request->data['description'];
 
 			$this->loadModel('Agency');
-	        $description = $this->Agency->get_data('update_description', ['description' => $description, 'id' => 32]);		
+	        $description = $this->Agency->get_data('update_description', ['description' => $description, 'id' => AppModel::get_agency_id()]);		
 	    }
 	}
 }

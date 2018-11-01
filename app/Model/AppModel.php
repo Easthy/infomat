@@ -23,6 +23,10 @@ App::uses('Model', 'Model');
 
 class AppModel extends Model {
     public $base_path = APP.'SQL'.DS;
+
+    public static function get_agency_id(){
+        return CakeSession::read('Auth.User.agency_id');
+    }
     
     public function get_data($query_method, array $params=array(), $process_method=false){
         $params_ = array_merge(

@@ -77,7 +77,7 @@ class AppController extends Controller {
 
 	public function beforeRender() {
 	    parent::beforeRender();
-
+	    
 	    $this->layout = 'main';
 	}
 

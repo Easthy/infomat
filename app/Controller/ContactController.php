@@ -56,7 +56,7 @@ class ContactController extends AppController {
 
             $this->loadModel('Agency');
 
-            $params = ['agency_id' => 32];
+            $params = ['agency_id' => AppModel::get_agency_id()];
 
             $contacts = $this->Agency->get_data('get_contacts', $params);
 
@@ -91,7 +91,7 @@ class ContactController extends AppController {
 
             $this->Agency->get_data('create_contact', 
             [
-                'headagency_id' => 32,
+                'headagency_id' => AppModel::get_agency_id(),
                 'address' => $address,
                 'address_comment' => $data['address_comment'],
                 'fullname' => $data['fullname'],

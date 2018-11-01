@@ -55,7 +55,7 @@ class ScheduleController extends AppController {
 	        $this->autoRender   = false;
 	        
 			$this->loadModel('Agency');
-	        $schedule = $this->Agency->get_data('get_schedule', ['id' => 32]);
+	        $schedule = $this->Agency->get_data('get_schedule', ['id' => AppModel::get_agency_id()]);
 
 	        echo $schedule[0][0]['timetable'];
 		}
@@ -70,7 +70,7 @@ class ScheduleController extends AppController {
 			$timetable = $this->processTimetable($data);
 
 			$this->loadModel('Agency');
-	        $this->Agency->get_data('update_schedule', ['id' => 32, 'timetable' => $timetable]);        
+	        $this->Agency->get_data('update_schedule', ['id' => AppModel::get_agency_id(), 'timetable' => $timetable]);        
 		}
 	}
 

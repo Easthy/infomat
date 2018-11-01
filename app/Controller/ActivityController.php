@@ -47,7 +47,7 @@ class ActivityController extends AppController {
  */
 	public function index() {
 		$this->loadModel('Activity');
-		$categories = $this->Activity->get_data('get_activity_categories', ['agency_id' => 32]);
+		$categories = $this->Activity->get_data('get_activity_categories', ['agency_id' => AppModel::get_agency_id()]);
             $periodicity = $this->Activity->get_data('get_activity_periodicity');
 
 		$this->set('categories', $categories);
@@ -59,7 +59,7 @@ class ActivityController extends AppController {
                   $this->layout       = false;
                   $this->autoRender   = false;
                   $this->loadModel('Activity');
-                  $categories = $this->Activity->get_data('get_activity_categories', ['agency_id' => 32]);
+                  $categories = $this->Activity->get_data('get_activity_categories', ['agency_id' => AppModel::get_agency_id()]);
                   
                   echo json_encode($categories);
             }
@@ -72,7 +72,7 @@ class ActivityController extends AppController {
 
                   $this->loadModel('Activity');
 
-                  $params = ['agency_id' => 32];
+                  $params = ['agency_id' => AppModel::get_agency_id()];
 
                   if($this->request->query && $this->request->query['category_id']) {
                         $params['category_id'] = $this->request->query['category_id'];
@@ -114,7 +114,7 @@ class ActivityController extends AppController {
 
             $this->Activity->get_data('create_activity', 
                   [
-                        'agency_id' => 32,
+                        'agency_id' => AppModel::get_agency_id(),
                         'type_id' => 1,
                         'start_date' => $data['start_date'],
                         'end_date' => $data['end_date'],

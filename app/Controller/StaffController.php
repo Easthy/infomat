@@ -56,7 +56,7 @@ class StaffController extends AppController {
             
             $this->loadModel('AgencyManagement');
 
-            $management = $this->AgencyManagement->get_data('get_management', ['agency_id' => 32]);
+            $management = $this->AgencyManagement->get_data('get_management', ['agency_id' => AppModel::get_agency_id()]);
 
             echo json_encode( $management );
 		}
@@ -85,14 +85,14 @@ class StaffController extends AppController {
             $data = $this->request->data;
             
             if(preg_match('/^img\/tmp\//', $data['path'])) {
-            	$path = $this::moveFile('img/management_'.Configure::read('Terminal.CurrentAgencyId').'/', $data['path']);
+            	$path = $this::moveFile('img/management_'.AppModel::get_agency_id().'/', $data['path']);
             } else {
             	$path = $data['path'];
             }
 
             $this->AgencyManagement->get_data('create_management', 
             	[
-            		'agency_id' => 32,
+            		'agency_id' => AppModel::get_agency_id(),
             		'firstname' => $data['firstname'],
             		'surname' => $data['surname'],
             		'fathername' => $data['fathername'],
@@ -121,7 +121,7 @@ class StaffController extends AppController {
 
 
                   if(preg_match('/^img\/tmp\//', $data['path'])) {
-                        $path = $this::moveFile('img/management_'.Configure::read('Terminal.CurrentAgencyId').'/', $data['path']);
+                        $path = $this::moveFile('img/management_'.AppModel::get_agency_id().'/', $data['path']);
                   } else {
                         $path = $data['path'];
                   }
@@ -129,7 +129,7 @@ class StaffController extends AppController {
 
             $this->AgencyManagement->get_data('update_management', 
             	[
-            		'agency_id' => 32,
+            		'agency_id' => AppModel::get_agency_id(),
             		'id' => $data['id'],
             		'firstname' => $data['firstname'],
             		'surname' => $data['surname'],
@@ -149,7 +149,7 @@ class StaffController extends AppController {
                   $this->loadModel('AgencyManagement');
 
                   $management = $this->AgencyManagement->get_data('get_management_entity', ['id' => $this->request->query['id']]);
-                  $this->AgencyManagement->get_data('delete_management', ['id' => $this->request->query['id'], 'agency_id' => 32]);
+                  $this->AgencyManagement->get_data('delete_management', ['id' => $this->request->query['id'], 'agency_id' => AppModel::get_agency_id()]);
                   unlink(WWW_ROOT.$management[0][0]['path']);
 		}
 	}

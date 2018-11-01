@@ -80,7 +80,7 @@ class ServiceController extends AppController {
                   }
 
                   $services = $this->Service->get_data('filter_service', $params);
-                  $service_ids = $this->Service->get_data('get_agency_services', ['agency_id' => 32],'format_active_service_ids');
+                  $service_ids = $this->Service->get_data('get_agency_services', ['agency_id' => AppModel::get_agency_id()],'format_active_service_ids');
                                     
                   if($this->request->query && $this->request->query['service_included']) {
                         $result_services = [];
@@ -113,9 +113,9 @@ class ServiceController extends AppController {
                   $this->loadModel('Service');
 
                   if($this->request->data['status'] == 'enable') {
-                        $this->Service->get_data('create_service_to_agency', ['agency_id' => 32, 'service_id' => $this->request->data['id']]);
+                        $this->Service->get_data('create_service_to_agency', ['agency_id' => AppModel::get_agency_id(), 'service_id' => $this->request->data['id']]);
                   } elseif($this->request->data['status'] == 'disable') {
-                        $this->Service->get_data('delete_service_to_agency', ['agency_id' => 32, 'service_ids' => $this->request->data['id']]);
+                        $this->Service->get_data('delete_service_to_agency', ['agency_id' => AppModel::get_agency_id(), 'service_ids' => $this->request->data['id']]);
                   }
             }
       }
@@ -129,11 +129,11 @@ class ServiceController extends AppController {
 
                   if($this->request->data['status'] == 'enable') {
                         foreach (explode(',', $this->request->data['service_ids']) as $id) {
-                              $this->Service->get_data('create_service_to_agency', ['agency_id' => 32, 'service_id' => $id]);
+                              $this->Service->get_data('create_service_to_agency', ['agency_id' => AppModel::get_agency_id(), 'service_id' => $id]);
                         }
                   } elseif($this->request->data['status'] == 'disable') {
                         foreach (explode(',', $this->request->data['service_ids']) as $id) {
-                              $this->Service->get_data('delete_service_to_agency', ['agency_id' => 32, 'service_ids' => $id]);
+                              $this->Service->get_data('delete_service_to_agency', ['agency_id' => AppModel::get_agency_id(), 'service_ids' => $id]);
                         }
                   }
             }
