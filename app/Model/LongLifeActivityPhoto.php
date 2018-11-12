@@ -23,28 +23,28 @@ class LongLifeActivityPhoto extends AppModel {
             'sql' => 'delete_photo_by_filename.sql',
             'params' => [],
             'template_fields' => [
-                'activity_photo_table' => 'activity_photo',
+                'activity_photo_table' => 'long_life_activity_photo',
             ]
         ],
         'delete_photo_by_activity' => [
             'sql' => 'delete_photo_by_activity.sql',
             'params' => [],
             'template_fields' => [
-                'activity_photo_table' => 'activity_photo',
+                'activity_photo_table' => 'long_life_activity_photo',
             ]
         ],
         'delete_photo' => [
             'sql' => 'delete_photo.sql',
             'params' => [],
             'template_fields' => [
-                'activity_photo_table' => 'activity_photo',
+                'activity_photo_table' => 'long_life_activity_photo',
             ]
         ],
         'get_photo_by_activity' => [
             'sql' => 'get_photo_by_activity.sql',
             'params' => [],
             'template_fields' => [
-                'activity_photo_table' => 'activity_photo',
+                'activity_photo_table' => 'long_life_activity_photo',
             ]
         ],
     ];
