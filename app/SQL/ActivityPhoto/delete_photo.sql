@@ -1,1 +1,1 @@
-delete from activity_photo where id = :id;
+delete from {{activity_photo_table}} where id = :id;

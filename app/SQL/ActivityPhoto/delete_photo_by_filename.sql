@@ -1,1 +1,1 @@
-delete from activity_photo where path like :filename;
+delete from {{activity_photo_table}} where path like :filename;

@@ -91,7 +91,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 							<a class="nav-link" href="/activity">НАШИ МЕРОПРИЯТИЯ</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">МОСКВА-ГОРОД ДОЛГОЛЕТИЯ</a>
+							<a class="nav-link" href="/long_life_activity">МОСКВА-ГОРОД ДОЛГОЛЕТИЯ</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">ОБЩЕГОРОДСКИЕ МЕРОПРИЯТИЯ</a>

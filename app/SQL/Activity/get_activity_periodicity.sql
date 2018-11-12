@@ -1,2 +1,2 @@
 select *
-from activity_periodicity;
+from {{activity_periodicity_table}};

@@ -1,1 +1,1 @@
-SELECT currval('activity_id_seq');
+SELECT currval('{{activity_id_seq}}');

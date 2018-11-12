@@ -1,1 +1,1 @@
-insert into activity_photo (activity_id, path) values (:activity_id, :path);
+insert into {{activity_photo_table}} (activity_id, path) values (:activity_id, :path);

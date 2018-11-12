@@ -19,6 +19,7 @@
  */
 
 App::uses('AppController', 'Controller');
+App::uses('AppModel', 'Model');
 
 /**
  * Static content controller
@@ -35,7 +36,7 @@ class ActivityController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('ActivityPhoto','Activity');
 
 /**
  * Displays a view
@@ -45,10 +46,16 @@ class ActivityController extends AppController {
  * @throws NotFoundException When the view file could not be found
  *   or MissingViewException in debug mode.
  */
+      
+      function __construct($request, $response) {
+            parent::__construct($request, $response);
+            $this->data_model = $this->Activity;
+            $this->photo_model = $this->ActivityPhoto;
+      }
+
 	public function index() {
-		$this->loadModel('Activity');
-		$categories = $this->Activity->get_data('get_activity_categories', ['agency_id' => AppModel::get_agency_id()]);
-            $periodicity = $this->Activity->get_data('get_activity_periodicity');
+		$categories = $this->data_model->get_data('get_activity_categories', ['agency_id' => AppModel::get_agency_id()]);
+            $periodicity = $this->data_model->get_data('get_activity_periodicity');
 
 		$this->set('categories', $categories);
             $this->set('periodicity', $periodicity);
@@ -58,8 +65,7 @@ class ActivityController extends AppController {
             if ( $this->request->is('ajax') ){
                   $this->layout       = false;
                   $this->autoRender   = false;
-                  $this->loadModel('Activity');
-                  $categories = $this->Activity->get_data('get_activity_categories', ['agency_id' => AppModel::get_agency_id()]);
+                  $categories = $this->data_model->get_data('get_activity_categories', ['agency_id' => AppModel::get_agency_id()]);
                   
                   echo json_encode($categories);
             }
@@ -70,15 +76,13 @@ class ActivityController extends AppController {
                   $this->layout       = false;
                   $this->autoRender   = false;
 
-                  $this->loadModel('Activity');
-
                   $params = ['agency_id' => AppModel::get_agency_id()];
 
                   if($this->request->query && $this->request->query['category_id']) {
                         $params['category_id'] = $this->request->query['category_id'];
-                        $activities = $this->Activity->get_data('get_activities_by_category', $params);
+                        $activities = $this->data_model->get_data('get_activities_by_category', $params);
                   } else {
-                        $activities = $this->Activity->get_data('get_activities', $params);
+                        $activities = $this->data_model->get_data('get_activities', $params);
                   }
 
                   echo json_encode( $activities );
@@ -90,9 +94,7 @@ class ActivityController extends AppController {
                   $this->layout       = false;
                   $this->autoRender   = false;
                   
-                  $this->loadModel('Activity');
-
-                  $activity = $this->Activity->get_data('get_activity', ['id' => $this->request->query['id']]);
+                  $activity = $this->data_model->get_data('get_activity', ['id' => $this->request->query['id']]);
 
                   echo json_encode( $activity );
             }
@@ -103,39 +105,35 @@ class ActivityController extends AppController {
             $this->autoRender   = false;
             
             if ( $this->request->is('ajax') ){
-            $this->loadModel('Activity');
+                  $data = $this->request->data;
 
-            $data = $this->request->data;
+                  $start_date = new \DateTime($data['start_date']);
+                  $end_date = new \DateTime($data['end_date']);
+                  $data['start_date'] = $start_date->format('Y-m-d');
+                  $data['end_date'] = $end_date->format('Y-m-d');
 
-            $start_date = new \DateTime($data['start_date']);
-            $end_date = new \DateTime($data['end_date']);
-            $data['start_date'] = $start_date->format('Y-m-d');
-            $data['end_date'] = $end_date->format('Y-m-d');
-
-            $this->Activity->get_data('create_activity', 
-                  [
-                        'agency_id' => AppModel::get_agency_id(),
-                        'type_id' => 1,
-                        'start_date' => $data['start_date'],
-                        'end_date' => $data['end_date'],
-                        'category_id' => $data['category_id'],
-                        'periodicity_id' => $data['periodicity_id'],
-                        'name' => $data['name'],
-                        'description' => $data['description'],
-                        'address' => $data['address'],
-                        'schedule' => $this->prepareSchedule($data)
-                  ]);
+                  $this->data_model->get_data('create_activity', 
+                        [
+                              'agency_id' => AppModel::get_agency_id(),
+                              'type_id' => 1,
+                              'start_date' => $data['start_date'],
+                              'end_date' => $data['end_date'],
+                              'category_id' => $data['category_id'],
+                              'periodicity_id' => $data['periodicity_id'],
+                              'name' => $data['name'],
+                              'description' => $data['description'],
+                              'address' => $data['address'],
+                              'schedule' => $this->prepareSchedule($data)
+                        ]);
             }
 
             if(preg_match('/^img\/tmp\//', $data['path'])) {
-                  $this->loadModel('ActivityPhoto');
-                  
-                  $last_id = $this->Activity->get_data('get_last_inserted');
+                  $last_id = $this->data_model->get_data('get_last_inserted');
                   $last_id = $last_id[0][0]['currval'];
 
                   $path = $this::moveFile('img/activity_'.$last_id.'/', $data['path']);
 
-                  $this->ActivityPhoto->get_data('create_photo', ['activity_id' => $last_id, 'path' => $path]);
+                  $this->photo_model->get_data('create_photo', ['activity_id' => $last_id, 'path' => $path]);
             }
       }
 
@@ -144,22 +142,19 @@ class ActivityController extends AppController {
                   $this->layout       = false;
                   $this->autoRender   = false;
                   
-                  $this->loadModel('Activity');
-
                   $data = $this->request->data;
 
                   if((preg_match('/^img\/tmp\//', $data['path'])) || empty($data['path'])) {
-                        $this->loadModel('ActivityPhoto');
-                        $photo = $this->ActivityPhoto->get_data('get_photo_by_activity', ['activity_id' => $data['id']]);
+                        $photo = $this->photo_model->get_data('get_photo_by_activity', ['activity_id' => $data['id']]);
 
                         if(!empty($photo[0])) {
-                              $this->ActivityPhoto->get_data('delete_photo', ['id' => $photo[0][0]['id']]);
+                              $this->photo_model->get_data('delete_photo', ['id' => $photo[0][0]['id']]);
                               unlink(WWW_ROOT.$photo[0][0]['path']);                       
                         }
 
                         if(preg_match('/^img\/tmp\//', $data['path'])) {
                               $path = $this::moveFile('img/activity_'.$data['id'].'/', $data['path']);
-                              $this->ActivityPhoto->get_data('create_photo', ['activity_id' => $data['id'], 'path' => $path]);
+                              $this->photo_model->get_data('create_photo', ['activity_id' => $data['id'], 'path' => $path]);
                         } else {
                               $path = $data['path'];
                         }
@@ -170,7 +165,7 @@ class ActivityController extends AppController {
                   $data['start_date'] = $start_date->format('Y-m-d');
                   $data['end_date'] = $end_date->format('Y-m-d');
                   
-                  $this->Activity->get_data('update_activity', 
+                  $this->data_model->get_data('update_activity', 
                         [
                               'start_date' => $data['start_date'],
                               'end_date' => $data['end_date'],
@@ -189,18 +184,15 @@ class ActivityController extends AppController {
             if ( $this->request->is('ajax') ){
                   $this->layout       = false;
                   $this->autoRender   = false;
-                  
-                  $this->loadModel('Activity');
-                  $this->loadModel('ActivityPhoto');
 
-                  $photo = $this->ActivityPhoto->get_data('get_photo_by_activity', ['activity_id' => $this->request->query['id']]);
+                  $photo = $this->photo_model->get_data('get_photo_by_activity', ['activity_id' => $this->request->query['id']]);
 
-                  $this->ActivityPhoto->get_data('delete_photo_by_activity', ['activity_id' => $this->request->query['id']]);
+                  $this->photo_model->get_data('delete_photo_by_activity', ['activity_id' => $this->request->query['id']]);
                   if(!empty($photo[0])) {
                         unlink(WWW_ROOT.$photo[0][0]['path']);                       
                   }
                   rmdir(WWW_ROOT.'img/activity_'.$this->request->query['id'].'/');
-                  $this->Activity->get_data('delete_activity', ['id' => $this->request->query['id']]);
+                  $this->data_model->get_data('delete_activity', ['id' => $this->request->query['id']]);
             }
       }
 
@@ -232,10 +224,9 @@ class ActivityController extends AppController {
                   $this->autoRender   = false;
 
                   if($this->request->query['id']) {
-                        $this->loadModel('ActivityPhoto');
                         $result = [];
 
-                        $photos = $this->ActivityPhoto->get_data('get_photo_by_activity', ['activity_id' => $this->request->query['id']]);
+                        $photos = $this->photo_model->get_data('get_photo_by_activity', ['activity_id' => $this->request->query['id']]);
                         foreach ($photos as $i => $photo) {
                               $result[$i]['thumbnailUrl'] = '/'.$photo[0]['path'];
                               $result[$i]['uuid'] = pathinfo($photo[0]['path'], PATHINFO_BASENAME);

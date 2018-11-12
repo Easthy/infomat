@@ -20,6 +20,7 @@
  */
 
 App::uses('Model', 'Model');
+App::import('Vendor', 'Templater', APP.'Templater.php');
 
 class AppModel extends Model {
     public $base_path = APP.'SQL'.DS;
@@ -41,13 +42,15 @@ class AppModel extends Model {
     }
 
     public function get_data($query_method, array $params=array(), $process_method=false){
+        $template_fields = !empty($this->sql[$query_method]['template_fields'])?$this->sql[$query_method]['template_fields']:array();
         $params_ = array_merge(
             $params, 
             $this->sql[$query_method]['params']
         );
         $data = $this->query_from_file(
             $this->sql[$query_method]['sql'],
-            $params_
+            $params_,
+            $template_fields
         );
         if ( $process_method ){
             $data = $this->{$process_method}($data);
@@ -55,10 +58,13 @@ class AppModel extends Model {
         return $data;
     }
     
-    public function query_from_file($sql_file,$params) {
-        $sql_file_path = $this->base_path.($this->name).DS.$sql_file;
+    public function query_from_file($sql_file,$params,$template_fields=array()) {
+        $sql_file_path = $this->base_path.($this->sql_dir).DS.$sql_file;
         $sql_file = fopen($sql_file_path, "r") or die("Unable to open sql-file!");
-        $sql = fread($sql_file,filesize($sql_file_path));
-        return $this->query($sql,$params);
+        $sql_template = new Templater($sql_file_path);
+        $sql_template->set_params($template_fields);
+        // debug($sql_template->get_content());exit('!');
+        // $sql = fread($sql_file,filesize($sql_file_path));
+        return $this->query($sql_template->get_content(),$params);
     }
 }

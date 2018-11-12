@@ -1,1 +1,1 @@
-delete from activity where id = :id;
+delete from {{activity_table}} where id = :id;
