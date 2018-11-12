@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
 class AgencyPhoto extends AppModel {
     public $name = 'AgencyPhoto';
     public $useTable='agency_photo';
-    
+    public $sql_dir = 'AgencyPhoto';
     protected $sql = [
         'get_photos' => [
             'sql' => 'get_photos.sql',

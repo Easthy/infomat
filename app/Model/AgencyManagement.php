@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
 class AgencyManagement extends AppModel {
     public $name = 'AgencyManagement';
     public $useTable='agency_management';
-    
+    public $sql_dir = 'AgencyManagement';
     protected $sql = [
         'get_management' => [
             'sql' => 'get_management.sql',

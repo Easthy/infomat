@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
 class Service extends AppModel {
     public $name = 'Service';
     public $useTable='activity';
-    
+    public $sql_dir = 'Service';
     protected $sql = [
         'get_services' => [
             'sql' => 'get_services.sql',

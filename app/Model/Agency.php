@@ -4,7 +4,8 @@ App::uses('AppModel', 'Model');
 class Agency extends AppModel {
     public $name = 'Agency';
     public $useTable='agency';
-    
+    public $sql_dir = 'Agency';
+
     protected $sql = [
         'get_schedule' => [
             'sql' => 'get_schedule.sql',
