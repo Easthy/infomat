@@ -98,7 +98,8 @@ Configure::write('Dispatcher.filters', array(
 Configure::write('ActiveMenu', array(
 	['home', 'agency', 'schedule', 'staff', 'contact'],
 	['service'],
-	['activity']
+	['activity'],
+	['long_life_activity']
 ));
 
 /**

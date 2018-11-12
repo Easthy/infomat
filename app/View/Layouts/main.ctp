@@ -90,7 +90,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 						<li class="nav-item <?= in_array($this->request->controller, Configure::read('ActiveMenu')[2]) ? 'active' : '' ?>">
 							<a class="nav-link" href="/activity">НАШИ МЕРОПРИЯТИЯ</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item <?= in_array($this->request->controller, Configure::read('ActiveMenu')[3]) ? 'active' : '' ?>">
 							<a class="nav-link" href="/long_life_activity">МОСКВА-ГОРОД ДОЛГОЛЕТИЯ</a>
 						</li>
 						<li class="nav-item">
