@@ -180,7 +180,7 @@ $(function() {
         }
 
         $.ajax({
-            url: "/activity/fetchActivity",
+            url: "/long_life_activity/fetchActivity",
             dataType: "json",
             data: params,
             success: function(data) {
@@ -208,7 +208,7 @@ $(function() {
     $('.form-toggle').click(function() {
         prepareModal();
         initUploader('');
-        $('.modal form').attr('action', '/activity/create');
+        $('.modal form').attr('action', '/long_life_activity/create');
         
         $('.modal .single').show();
         $('.modal .period').hide();
@@ -217,9 +217,9 @@ $(function() {
     $('body').on('click', '.action-edit', function() {
         prepareModal();
         initUploader($(this).data('id'));
-        $('.modal form').attr('action', '/activity/update');
+        $('.modal form').attr('action', '/long_life_activity/update');
         $.ajax({
-            url: "/activity/get",
+            url: "/long_life_activity/get",
             dataType: "json",
             data: {'id': $(this).data('id')},
             success: function(data) {
@@ -236,7 +236,7 @@ $(function() {
 
     $('body').on('click', '.action-delete', function() {
         $.ajax({
-            url: "/activity/delete",
+            url: "/long_life_activity/delete",
             data: {'id': $(this).data('id')},
             success: function() {
                 fetchActivities();
@@ -345,7 +345,7 @@ $(function() {
 
     function updateCategories() {
         $.ajax({
-            url: "/activity/fetchCategories",
+            url: "/long_life_activity/fetchCategories",
             success: function(data) {
                 data = JSON.parse(data);
                 var sum = 0;
@@ -397,18 +397,18 @@ $(function() {
     function initUploader(id) {
         var traditionalUploader = new qq.FineUploader({
             request: {
-                endpoint: "/activity/uploadPhoto"
+                endpoint: "/long_life_activity/uploadPhoto"
             },
             deleteFile: {
                 enabled: true,
-                endpoint: "/activity/deletePhoto",
+                endpoint: "/long_life_activity/deletePhoto",
                 params: {
                     id: id
                 },
                 method: 'POST'
             },
             session: {
-                endpoint: "/activity/getSession",
+                endpoint: "/long_life_activity/getSession",
                 params: {
                     id: id
                 }
