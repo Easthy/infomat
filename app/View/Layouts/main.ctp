@@ -81,46 +81,34 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
-						<li class="nav-item <?= in_array($this->request->controller, Configure::read('ActiveMenu')[0]) ? 'active' : '' ?>">
-							<a class="nav-link" href="/">О НАС</a>
-						</li>
-						<li class="nav-item <?= in_array($this->request->controller, Configure::read('ActiveMenu')[1]) ? 'active' : '' ?>">
-							<a class="nav-link" href="/service">НАШИ УСЛУГИ</a>
-						</li>
-						<li class="nav-item <?= in_array($this->request->controller, Configure::read('ActiveMenu')[2]) ? 'active' : '' ?>">
-							<a class="nav-link" href="/activity">НАШИ МЕРОПРИЯТИЯ</a>
-						</li>
-						<li class="nav-item <?= in_array($this->request->controller, Configure::read('ActiveMenu')[3]) ? 'active' : '' ?>">
-							<a class="nav-link" href="/long_life_activity">МОСКВА-ГОРОД ДОЛГОЛЕТИЯ</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">ОБЩЕГОРОДСКИЕ МЕРОПРИЯТИЯ</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">СПРАВОЧНИК УЧРЕЖДЕНИЙ</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">РУКОВОДСТВО ДЕПАРТАМЕНТА</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">ЗАСТАВКИ</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						  	ЕЩЕ
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#">MENU ITEM</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">MENU ITEM</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">MENU ITEM</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">MENU ITEM</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">MENU ITEM</a>
-							</div>
-						</li>
+						<?php if(!empty(Configure::read('Menu')[CakeSession::read('Auth.User.role')])):?>
+							<?php foreach(Configure::read('Menu')[CakeSession::read('Auth.User.role')] as $key => $item):?>
+								<li class="nav-item <?= in_array($this->request->controller, $item['active']) ? 'active' : '' ?>">
+									<a 
+										class="nav-link" 
+										href="<?php echo $item['href']?>"
+									>
+										<?php echo $item['name']?>
+									</a>
+								</li>
+							<?php endforeach;?>
+						<?php endif;?>
+
+						<?php if(!empty(CakeSession::read('Auth.User.role')&&CakeSession::read('Auth.User.role')==999)):?>
+							<?php if(!empty($agencies)):?>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Войти как
+									</a>
+									<div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
+										<?php foreach($agencies as $key => $ag):?>
+											<a class="dropdown-item <?php echo $ag['id']==CakeSession::read('Auth.User.agency_id')?'active':'' ?>" href="/auth/enter_as?id=<?php echo $ag['id']?>"><?php echo $ag['shortname']?></a>
+											<div class="dropdown-divider"></div>
+										<?php endforeach;?>
+									</div>
+								</li>
+							<?php endif;?>
+						<?php endif;?>
 					</ul>
 
 					<ul class="navbar-nav ml-auto">
@@ -134,10 +122,17 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 							<img src="/img/icons/icon_profile.png">
 						</li>
 						<li class="nav-item pull-right">
-							<a class="nav-link" href="#">
+							<a class="nav-link" href="javascript:void(0)">
 								<?php echo AppModel::get_username();?>
 							</a>
 						</li>
+						<?php if($this->Session->check('Auth.User')):?>
+							<li class="nav-item pull-right">
+								<a class="nav-link" href="/users/logout">
+									Выход
+								</a>
+							</li>
+						<?php endif;?>
 					</ul>
 				</div>
 			</nav>

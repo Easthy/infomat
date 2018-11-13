@@ -66,4 +66,11 @@ class AuthController extends AppController {
 	public function logout() {
 	    return $this->redirect($this->Auth->logout());
 	}
+
+	public function enter_as(){
+		$this->layout = false;
+		$this->autoRender = false; 
+		CakeSession::write('Auth.User.agency_id',$this->request->query['id']);
+		$this->redirect($this->Auth->redirectUrl());
+	}
 }

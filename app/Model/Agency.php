@@ -7,6 +7,10 @@ class Agency extends AppModel {
     public $sql_dir = 'Agency';
 
     protected $sql = [
+        'get_agency_list' => [
+            'sql' => 'get_agency_list.sql',
+            'params' => []
+        ],
         'get_schedule' => [
             'sql' => 'get_schedule.sql',
             'params' => []

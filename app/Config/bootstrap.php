@@ -95,12 +95,69 @@ Configure::write('Dispatcher.filters', array(
 	'CacheDispatcher'
 ));
 
-Configure::write('ActiveMenu', array(
-	['home', 'agency', 'schedule', 'staff', 'contact'],
-	['service'],
-	['activity'],
-	['long_life_activity']
-));
+Configure::write('Menu', 
+	array(
+		0 => [
+			[
+				'name' => 'О нас',
+				'href' => '/',
+				'active' => ['home', 'agency', 'schedule', 'staff', 'contact']
+			],
+			[
+				'name' => 'Наши услуги',
+				'href' => '/service',
+				'active' => ['service']
+			],
+			[
+				'name' => 'Наши мероприятия',
+				'href' => '/activity',
+				'active' => ['activity']
+			],
+			[
+				'name' => 'Заставки',
+				'href' => '/screensaver',
+				'active' => ['screensaver']
+			],
+		],
+		999 => [
+			[
+				'name' => 'О нас',
+				'href' => '/',
+				'active' => ['home', 'agency', 'schedule', 'staff', 'contact']
+			],
+			[
+				'name' => 'Наши услуги',
+				'href' => '/service',
+				'active' => ['service']
+			],
+			[
+				'name' => 'Наши мероприятия',
+				'href' => '/activity',
+				'active' => ['activity']
+			],
+			[
+				'name' => 'Москва-город долголетия',
+				'href' => '/long_life_activity',
+				'active' => ['long_life_activity']
+			],
+			[
+				'name' => 'Заставки',
+				'href' => '/screensaver',
+				'active' => ['screensaver']
+			],
+			[
+				'name' => 'Общегородские мероприятия',
+				'href' => '#',
+				'active' => ['#']
+			],
+			[
+				'name' => 'Справочник учреждений',
+				'href' => '#',
+				'active' => ['#']
+			],
+		],
+	)
+);
 
 /**
  * Configures default file logging options

@@ -67,4 +67,8 @@ class AppModel extends Model {
         // $sql = fread($sql_file,filesize($sql_file_path));
         return $this->query($sql_template->get_content(),$params);
     }
+
+    public function extract(&$data){
+        return HASH::extract($data,'{n}.{n}');
+    }
 }

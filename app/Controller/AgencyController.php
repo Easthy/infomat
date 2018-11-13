@@ -53,7 +53,7 @@ class AgencyController extends AppController {
 			$this->loadModel('AgencyPhotoAlbum');
 			$this->loadModel('AgencyPhoto');
 
-			$album = $this->AgencyPhotoAlbum->get_data('get_album', ['agency_id' => Configure::read('Terminal.CurrentAgencyId')]);
+			$album = $this->AgencyPhotoAlbum->get_data('get_album', ['agency_id' => AppModel::get_agency_id()]);
 			$album = $album[0][0];
 
 			$path = $this::uploadFile('img/album_'.$album['id'].'/');
@@ -74,7 +74,7 @@ class AgencyController extends AppController {
 			$this->loadModel('AgencyPhotoAlbum');
 			$this->loadModel('AgencyPhoto');
 
-			$album = $this->AgencyPhotoAlbum->get_data('get_album', ['agency_id' => Configure::read('Terminal.CurrentAgencyId')]);
+			$album = $this->AgencyPhotoAlbum->get_data('get_album', ['agency_id' => AppModel::get_agency_id()]);
 			$album = $album[0][0];
 
 	        $photos = $this->AgencyPhoto->get_data('get_photos', 

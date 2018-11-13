@@ -64,14 +64,28 @@ class AppController extends Controller {
 	// only allow the login controllers only
 	public function beforeFilter() {
 	    $this->Auth->allow('login');
+        self::isAuthorized();
+        if( $this->Session->check('Auth.User.role') && $this->Session->read('Auth.User.role') == 999 ){
+            $this->loadModel('Agency');
+            $agencies = $this->Agency->get_data('get_agency_list', [], 'extract');
+            $this->set('agencies',$agencies);
+            if ( empty($this->Session->read('Auth.User.agency_id')) && !empty($agencies[0]['id']) ){
+                $this->Session->write('Auth.User.agency_id',$agencies[0]['id']);
+            }
+        }
+        // debug($this->Session->read('Auth.User'));
 	    // debug($this->Session->read('Auth'));
 	    // App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 		// $passwordHasher = new SimplePasswordHasher(array('hashType' => 'sha512'));
         // debug( $passwordHasher->hash('qwerty','sha512',true) );
 	}
 
-	public function isAuthorized($user) {
-    	// Here is where we should verify the role and give access based on role 
+	public function isAuthorized() {
+    	// Here is where we should verify the role and give access based on role
+        if ( $this->request->controller=='auth' && $this->action=='enter_as' && CakeSession::read('Auth.User.role') != 999 ){
+            $this->redirect('/');
+            exit();
+        }
     	return true;
 	}
 

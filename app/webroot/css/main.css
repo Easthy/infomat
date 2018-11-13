@@ -86,6 +86,10 @@ label {
 
 #header .nav-link {
 	color: #ffffff !important;
+	text-transform: uppercase;
+	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 @media (min-width: 1580px) {
@@ -446,4 +450,11 @@ input.checkbox-round:checked + label
 	background-color: #ddd;
 	border-radius: 0;
 	width: 40px;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 500px;
+    max-width: 320px;
+    overflow-x: hidden;
 }

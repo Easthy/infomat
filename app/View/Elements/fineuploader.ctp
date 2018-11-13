@@ -22,10 +22,10 @@
                         </div>
                     </div>
                     <?php if($this->request->controller == 'home'): ?>
-                    <div class="overlay-visible">
-                        <input type="checkbox" class="checkbox-round"/>
-                        <label class="checkbox-label"></label>
-                    </div>
+                      <div class="overlay-visible">
+                          <input type="checkbox" class="checkbox-round"/>
+                          <label class="checkbox-label"></label>
+                      </div>
                     <?php endif; ?>
                 </div>
             </div>
