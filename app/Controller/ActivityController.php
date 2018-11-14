@@ -131,7 +131,7 @@ class ActivityController extends AppController {
                   $last_id = $this->data_model->get_data('get_last_inserted');
                   $last_id = $last_id[0][0]['currval'];
 
-                  $path = $this::moveFile('img/activity_'.$last_id.'/', $data['path']);
+                  $path = $this::moveFile('img'.DS.'agency_'.(AppModel::get_agency_id()).DS.'activity_'.$last_id.DS, $data['path']);
 
                   $this->photo_model->get_data('create_photo', ['activity_id' => $last_id, 'path' => $path]);
             }
@@ -153,7 +153,7 @@ class ActivityController extends AppController {
                         }
 
                         if(preg_match('/^img\/tmp\//', $data['path'])) {
-                              $path = $this::moveFile('img/activity_'.$data['id'].'/', $data['path']);
+                              $path = $this::moveFile('img'.DS.'agency_'.(AppModel::get_agency_id()).DS.'activity_'.$data['id'].DS, $data['path']);
                               $this->photo_model->get_data('create_photo', ['activity_id' => $data['id'], 'path' => $path]);
                         } else {
                               $path = $data['path'];
@@ -191,7 +191,7 @@ class ActivityController extends AppController {
                   if(!empty($photo[0])) {
                         unlink(WWW_ROOT.$photo[0][0]['path']);                       
                   }
-                  rmdir(WWW_ROOT.'img/activity_'.$this->request->query['id'].'/');
+                  rmdir(WWW_ROOT.'img'.DS.'agency_'.(AppModel::get_agency_id()).DS.'activity_'.$this->request->query['id'].DS);
                   $this->data_model->get_data('delete_activity', ['id' => $this->request->query['id']]);
             }
       }

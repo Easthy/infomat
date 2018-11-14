@@ -53,13 +53,15 @@ class AgencyController extends AppController {
 			$this->loadModel('AgencyPhotoAlbum');
 			$this->loadModel('AgencyPhoto');
 
-			$album = $this->AgencyPhotoAlbum->get_data('get_album', ['agency_id' => AppModel::get_agency_id()]);
-			$album = $album[0][0];
+			$album = $this->AgencyPhotoAlbum->get_data('get_album', ['agency_id' => AppModel::get_agency_id()],'extract');
+			if (empty($album[0]['id'])){
+				$album = $this->AgencyPhotoAlbum->get_data('create_album', ['agency_id' => AppModel::get_agency_id(),'name' => 'Фотоальбом','description'=>'Первый фотоальбом'],'extract');
+			}
 
-			$path = $this::uploadFile('img/album_'.$album['id'].'/');
+			$path = $this::uploadFile('img'.DS.'agency_'.(AppModel::get_agency_id()).DS.'album'.$album[0]['id'].DS);
 
 	        $this->AgencyPhoto->get_data('create_photo', 
-	        	['agency_id' => Configure::read('Terminal.CurrentAgencyId'), 'path' => $path, 'photo_album_id' => $album['id']]);
+	        	['agency_id' => AppModel::get_agency_id(), 'path' => $path, 'photo_album_id' => $album[0]['id']]);
 	 
 	        $result['success']   = 'true';
 	 

@@ -10,5 +10,9 @@ class AgencyPhotoAlbum extends AppModel {
             'sql' => 'get_album.sql',
             'params' => []
         ],
+        'create_album' => [
+            'sql' => 'create_album.sql',
+            'params' => []
+        ],
     ];
 }
