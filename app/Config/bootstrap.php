@@ -147,8 +147,8 @@ Configure::write('Menu',
 			],
 			[
 				'name' => 'Общегородские мероприятия',
-				'href' => '#',
-				'active' => ['#']
+				'href' => '/city_activity',
+				'active' => ['city_activity']
 			],
 			[
 				'name' => 'Справочник учреждений',

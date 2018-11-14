@@ -1,9 +1,9 @@
 <?php
 App::uses('AppModel', 'Model');
 
-class Activity extends AppModel {
-    public $name = 'Activity';
-    public $useTable='activity';
+class CityActivity extends AppModel {
+    public $name = 'CityActivity';
+    public $useTable='city_activity';
     
     public $sql_dir = 'Activity';
 
@@ -12,27 +12,27 @@ class Activity extends AppModel {
             'sql' => 'get_activities.sql',
             'params' => [],
             'template_fields' => [
-                'activity_table' => 'activity',
-                'activity_category_table' => 'activity_category',
-                'activity_photo_table' => 'activity_photo'
+                'activity_table' => 'city_activity',
+                'activity_category_table' => 'city_activity_category',
+                'activity_photo_table' => 'city_activity_photo'
             ]
         ],
         'get_activities_by_category' => [
             'sql' => 'get_activities_by_category.sql',
             'params' => [],
             'template_fields' => [
-                'activity_table' => 'activity',
-                'activity_category_table' => 'activity_category',
-                'activity_photo_table' => 'activity_photo'
+                'activity_table' => 'city_activity',
+                'activity_category_table' => 'city_activity_category',
+                'activity_photo_table' => 'city_activity_photo'
             ]
         ],
         'get_activity_categories' => [
             'sql' => 'get_activity_categories.sql',
             'params' => [],
             'template_fields' => [
-                'activity_table' => 'activity',
-                'activity_category_table' => 'activity_category',
-                'activity_photo_table' => 'activity_photo'
+                'activity_table' => 'city_activity',
+                'activity_category_table' => 'city_activity_category',
+                'activity_photo_table' => 'city_activity_photo'
             ]
         ],
         'get_activity_periodicity' => [
@@ -46,8 +46,8 @@ class Activity extends AppModel {
             'sql' => 'get_activity.sql',
             'params' => [],
             'template_fields' => [
-                'activity_table' => 'activity',
-                'activity_photo_table' => 'activity_photo'
+                'activity_table' => 'city_activity',
+                'activity_photo_table' => 'city_activity_photo'
             ]
         ],
         'get_last_inserted' => [
@@ -61,21 +61,21 @@ class Activity extends AppModel {
             'sql' => 'create_activity.sql',
             'params' => [],
             'template_fields' => [
-                'activity_table' => 'activity'
+                'activity_table' => 'city_activity'
             ]
         ],
         'update_activity' => [
             'sql' => 'update_activity.sql',
             'params' => [],
             'template_fields' => [
-                'activity_table' => 'activity'
+                'activity_table' => 'city_activity'
             ]
         ],
         'delete_activity' => [
             'sql' => 'delete_activity.sql',
             'params' => [],
             'template_fields' => [
-                'activity_table' => 'activity'
+                'activity_table' => 'city_activity'
             ]
         ],
     ];
