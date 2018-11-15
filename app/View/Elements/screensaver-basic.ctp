@@ -85,7 +85,7 @@
                         <li class="menu-item">
                             <div id="tui-icon-color-picker">Цвет иконки</div>
                         </li>
-                        <li class="menu-item border" id="btn-register-icon">Добавить свою иконку</li>
+                        <li class="menu-item border" id="btn-register-icon">Зарегистрировать выделенное как иконку</li>
                         <li class="menu-item icon-text" data-icon-type="arrow">➡</li>
                         <li class="menu-item icon-text" data-icon-type="cancel">✖</li>
                         <li class="menu-item close">Закрыть</li>

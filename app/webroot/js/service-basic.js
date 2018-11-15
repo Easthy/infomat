@@ -923,7 +923,7 @@ $inputRangeColorFilterValue.on('change', function() {
 // Etc..
 
 // Load sample image
-imageEditor.loadImageFromURL('img/sampleImage.jpg', 'SampleImage').then(sizeValue => {
+imageEditor.loadImageFromURL('/img/sampleImage.jpg', 'SampleImage').then(sizeValue => {
     console.log(sizeValue);
     imageEditor.clearUndoStack();
 });
