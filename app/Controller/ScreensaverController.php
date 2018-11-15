@@ -50,6 +50,7 @@ class ScreensaverController extends AppController {
                   'get_agency_screensavers',
                   ['agency_id'=>AppModel::get_agency_id(),'active'=>1]
             );
+            $screensavers = [['id'=>1,'link_file'=>'/img/sampleImage.jpg','name'=>'Заставка']];
 
 		$this->set('screensavers', $screensavers);
 	}

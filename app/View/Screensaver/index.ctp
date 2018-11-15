@@ -9,8 +9,8 @@
     <?php if(!empty($screensavers)):?>
 	    <?php foreach ($screensavers as $cat): ?>
 	        <hr class="m-0">
-	        <div class="p-3 d-flex justify-content-between" data-category-id="<?= $cat[0]['id'] ?>">
-	            <span class="text-14 text-600"><?= $cat[0]['name'] ?></span>
+	        <div class="p-3 d-flex justify-content-between show-screensaver" data-image-id="<?= $cat['id'] ?>" data-image-path="<?= $cat['link_file'] ?>">
+	            <span class="text-14 text-600"><?= $cat['name'] ?></span>
 	            <span class="text-12 text-700 text-design-green"></span> 
 	        </div>
 	    <?php endforeach; ?>
@@ -38,3 +38,15 @@
        <?php echo $this->element('screensaver-basic')?>
 	</div>
 </div>
+
+<script type="text/javascript">
+$(function(){
+	$(document).on('click','.show-screensaver',function(){
+		// Load sample image
+		imageEditor.loadImageFromURL('/img/sampleImage.jpg', 'SampleImage').then(sizeValue => {
+		    console.log(sizeValue);
+		    imageEditor.clearUndoStack();
+		});
+	})
+})
+</script>

@@ -16,6 +16,7 @@ var $btns = $('.menu-item');
 var $btnsActivatable = $btns.filter('.activatable');
 var $inputImage = $('#input-image-file');
 var $btnDownload = $('#btn-download');
+var $btnUpload = $('#btn-upload');
 
 var $btnUndo = $('#btn-undo');
 var $btnRedo = $('#btn-redo');
@@ -499,6 +500,32 @@ $btnDownload.on('click', function() {
     }
 });
 
+$btnUpload.on('click', function() {
+    var imageName = imageEditor.getImageName();
+    var base64Image = imageEditor.toDataURL();
+
+    var base64Image = base64Image.split("data:image/png;base64,")[1];
+
+    var form = document.createElement("form");
+    var element1 = document.createElement("input"); 
+    var element2 = document.createElement("input");  
+
+    form.method = "POST";
+    form.action = "/screensaver/upload";   
+
+    element1.value=encodeURIComponent(base64Image);
+    element1.name="base64Image";
+    form.appendChild(element1);  
+
+    element2.value='pw';
+    element2.name="name";
+    form.appendChild(element2);
+
+    document.body.appendChild(form);
+
+    form.submit();
+});
+
 // control draw line mode
 $btnDrawLine.on('click', function() {
     imageEditor.stopDrawingMode();
@@ -921,13 +948,6 @@ $inputRangeColorFilterValue.on('change', function() {
 });
 
 // Etc..
-
-// Load sample image
-imageEditor.loadImageFromURL('/img/sampleImage.jpg', 'SampleImage').then(sizeValue => {
-    console.log(sizeValue);
-    imageEditor.clearUndoStack();
-});
-
 // IE9 Unselectable
 $('.menu').on('selectstart', function() {
     return false;

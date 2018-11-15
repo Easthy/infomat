@@ -11,6 +11,8 @@
                             <input type="file" accept="image/*" id="input-image-file">
                         </li>
                         <li class="menu-item border" id="btn-download">Сохранить на ПК</li>
+                        <li class="menu-item border" id="btn-upload">Сохранить для терминала</li>
+                        <li class="menu-item border" id="btn-activate">Активировать</li>
                     </ul>
                 </div>
                 <ul class="menu">
