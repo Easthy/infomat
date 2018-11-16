@@ -507,7 +507,12 @@ $btnActivate.on('click',function(){
 });
 
 $btnDelete.on('click',function(){
-    
+    var id = $('.show-screensaver.active').data('image-id');
+    if( !id ){
+        alert('Заставка ещё не сохранена');
+        return;
+    }
+    window.location.href='/screensaver/delete/'+id;
 });
 
 $btnUpload.on('click', function() {

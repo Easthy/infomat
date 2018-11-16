@@ -36,7 +36,7 @@ class ScreensaverController extends AppController {
  *
  * @var array
  */
-      public $uses = array('Screensavers');
+      public $uses = array('Screensavers','ScreenFile');
 
 /**
  * Displays a view
@@ -56,6 +56,9 @@ class ScreensaverController extends AppController {
 	}
 
 	public function upload() {
+		$this->layout = false;
+		$this->autoRender = false; 
+
         # Saving file
 		$img = base64_decode( $_POST['base64Image'] );
 		$random_string = CakeText::uuid();
@@ -85,7 +88,6 @@ class ScreensaverController extends AppController {
 		}
 		$screensavers = $this->Screensavers->save($data);
 
-		$this->loadModel('ScreenFile');
 		$screensaver_id = $this->Screensavers->getLastInsertId() ? $this->Screensavers->getLastInsertId() : $this->request->data['id'];
 		$screenfile = $this->ScreenFile->findByScreensaverId($screensaver_id);
 		$data = array(
@@ -96,6 +98,37 @@ class ScreensaverController extends AppController {
 			$data['id'] = $screenfile['ScreenFile']['id'];
 		}
 		$this->ScreenFile->save($data);
+		$this->redirect('/screensaver');
+	}
+
+	public function delete($id){
+		$this->layout = false;
+		$this->autoRender = false; 
+
+		$screensaver = $this->Screensavers->findById($id);
+
+		if( empty($screensaver['Screensavers']['id']) ){
+			$this->redirect('/screensaver');
+			exit();
+		}
+
+		$res = $this->Screensavers->query(
+			'DELETE FROM public.screen_saver WHERE agency_id=:agency_id AND id=:id',
+			array(
+				'agency_id' => AppModel::get_agency_id(),
+				'id' => $screensaver['Screensavers']['id']
+			)
+		);
+		if($res){
+			$screenfile = $this->ScreenFile->findByScreensaverId($screensaver['Screensavers']['id']);
+			unlink(WWW_ROOT.$screensaver['ScreenFile']['link_file']);
+			$this->ScreenFile->query(
+				'DELETE FROM public.screen_file WHERE screensaver_id=:id',
+				array(
+					'id' => $screensaver['ScreenFile']['id']
+				)
+			);
+		}
 		$this->redirect('/screensaver');
 	}
 }
