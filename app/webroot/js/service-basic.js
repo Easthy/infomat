@@ -17,6 +17,8 @@ var $btnsActivatable = $btns.filter('.activatable');
 var $inputImage = $('#input-image-file');
 var $btnDownload = $('#btn-download');
 var $btnUpload = $('#btn-upload');
+var $btnActivate = $('#btn-activate');
+var $btnDelete = $('#btn-delete');
 
 var $btnUndo = $('#btn-undo');
 var $btnRedo = $('#btn-redo');
@@ -500,6 +502,14 @@ $btnDownload.on('click', function() {
     }
 });
 
+$btnActivate.on('click',function(){
+    $btnActivate.toggleClass('activated');
+});
+
+$btnDelete.on('click',function(){
+    
+});
+
 $btnUpload.on('click', function() {
     var imageName = imageEditor.getImageName();
     var base64Image = imageEditor.toDataURL();
@@ -509,17 +519,27 @@ $btnUpload.on('click', function() {
     var form = document.createElement("form");
     var element1 = document.createElement("input"); 
     var element2 = document.createElement("input");  
+    var element3 = document.createElement("input");  
+    var element4 = document.createElement("input");  
 
     form.method = "POST";
     form.action = "/screensaver/upload";   
 
-    element1.value=encodeURIComponent(base64Image);
+    element1.value=base64Image;
     element1.name="base64Image";
     form.appendChild(element1);  
 
-    element2.value='pw';
+    element2.value=$('#screensaver-name').val();
     element2.name="name";
     form.appendChild(element2);
+
+    element3.value = ($('.show-screensaver.active').data('image-id') ? $('.show-screensaver.active').data('image-id') : '');
+    element3.name = 'id';
+    form.appendChild(element3);
+
+    element4.value = $btnActivate.hasClass('activated');
+    element4.name = 'active';
+    form.appendChild(element4);
 
     document.body.appendChild(form);
 

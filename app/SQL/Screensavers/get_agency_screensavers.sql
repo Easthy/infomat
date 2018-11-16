@@ -11,5 +11,4 @@ INNER JOIN screen_file
 ON screen_file.screensaver_id = screen_saver.id
 WHERE
 	screen_saver.agency_id = :agency_id
-AND active = :active
 ;

@@ -126,6 +126,10 @@ label {
 	font-weight: 700;
 }
 
+.block-top-title #screensaver-name {
+	font-size: 21px;
+}
+
 .sidebar-item-text {
 	font-size: 14px;
 	font-weight: 600;	

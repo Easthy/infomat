@@ -4,7 +4,7 @@
         <div class="body-container">
             <div class="tui-image-editor-controls">
                 <div class="header">
-                    <span class="name">Редактор заставки</span>
+                    <span class="name"></span>
                     <ul class="menu">
                         <li class="menu-item border input-wrapper">
                             Выбрать файл
@@ -13,6 +13,7 @@
                         <li class="menu-item border" id="btn-download">Сохранить на ПК</li>
                         <li class="menu-item border" id="btn-upload">Сохранить для терминала</li>
                         <li class="menu-item border" id="btn-activate">Активировать</li>
+                        <li class="menu-item border" id="btn-delete">Удалить</li>
                     </ul>
                 </div>
                 <ul class="menu">
