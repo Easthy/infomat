@@ -112,23 +112,21 @@ class ScreensaverController extends AppController {
 			exit();
 		}
 
-		$res = $this->Screensavers->query(
+		$this->Screensavers->query(
 			'DELETE FROM public.screen_saver WHERE agency_id=:agency_id AND id=:id',
 			array(
 				'agency_id' => AppModel::get_agency_id(),
 				'id' => $screensaver['Screensavers']['id']
 			)
 		);
-		if($res){
-			$screenfile = $this->ScreenFile->findByScreensaverId($screensaver['Screensavers']['id']);
-			unlink(WWW_ROOT.$screensaver['ScreenFile']['link_file']);
-			$this->ScreenFile->query(
-				'DELETE FROM public.screen_file WHERE screensaver_id=:id',
-				array(
-					'id' => $screensaver['ScreenFile']['id']
-				)
-			);
-		}
+		$screenfile = $this->ScreenFile->findByScreensaverId($screensaver['Screensavers']['id']);
+		unlink(WWW_ROOT.$screensaver['ScreenFile']['link_file']);
+		$this->ScreenFile->query(
+			'DELETE FROM public.screen_file WHERE screensaver_id=:id',
+			array(
+				'id' => $screensaver['ScreenFile']['id']
+			)
+		);
 		$this->redirect('/screensaver');
 	}
 }
