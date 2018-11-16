@@ -120,11 +120,11 @@ class ScreensaverController extends AppController {
 			)
 		);
 		$screenfile = $this->ScreenFile->findByScreensaverId($screensaver['Screensavers']['id']);
-		unlink(WWW_ROOT.$screensaver['ScreenFile']['link_file']);
+		unlink(WWW_ROOT.$screenfile['ScreenFile']['link_file']);
 		$this->ScreenFile->query(
 			'DELETE FROM public.screen_file WHERE screensaver_id=:id',
 			array(
-				'id' => $screensaver['ScreenFile']['id']
+				'id' => $screenfile['ScreenFile']['id']
 			)
 		);
 		$this->redirect('/screensaver');
