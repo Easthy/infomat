@@ -73,17 +73,22 @@ $(function(){
 	});
 
 	$(document).on('click','#btn-create',function(){
+		if($('[data-image-new]').length!=0){
+			return;
+		}
 		var new_screensaver = '<hr class="m-0">\
 	        <div class="p-3 d-flex justify-content-between show-screensaver" \
 	        	data-image-id="" \
 	        	data-image-path=""\
 	        	data-image-name=""\
 	        	data-image-active=""\
+	        	data-image-new\
 	        >\
 	            <span class="text-14 text-600">Новая заставка</span>\
 	            <span class="text-12 text-700 text-design-green"></span> \
 	        </div>';
-		$('.sidebar').append(new_screensaver);
+		$(new_screensaver).appendTo('.sidebar');
+		$('[data-image-new]').click();
 	});
 
 	$('.show-screensaver:first').click();
