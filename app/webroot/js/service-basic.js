@@ -504,7 +504,24 @@ $btnDownload.on('click', function() {
 
 $btnActivate.on('click',function(){
     $btnActivate.toggleClass('activated');
+    var id = $('.show-screensaver.active').data('image-id');
+    if (id){
+        var active = $(this).hasClass('activated');
+        activateScreensaver(id,active).done(function(){
+            $('.show-screensaver').data('image-active',0);
+            $('.show-screensaver.active').data('image-active',active);
+        });
+    }
 });
+
+function activateScreensaver(id,active){
+    return $.ajax({
+        url: '/screensaver/activate',
+        type: "POST",
+        dataType: "json",
+        data: {id:id,active:active},
+    });
+}
 
 $btnDelete.on('click',function(){
     var id = $('.show-screensaver.active').data('image-id');

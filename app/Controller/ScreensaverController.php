@@ -129,4 +129,20 @@ class ScreensaverController extends AppController {
 		);
 		$this->redirect('/screensaver');
 	}
+
+	public function activate(){
+		$this->layout = false;
+		$this->autoRender = false; 
+		if ( !empty($this->request->data['id']) ){
+			$this->Screensavers->query('
+				UPDATE public.screen_saver SET active=false WHERE agency_id=:agency_id',
+				array(
+					'agency_id'	=> AppModel::get_agency_id(),
+				)
+			);
+			$this->Screensavers->id = $this->request->data['id'];
+			$this->Screensavers->saveField('active',$this->request->data['active']);
+		}
+		echo json_encode(array('id'=>$this->request->data['id']));
+	}
 }
