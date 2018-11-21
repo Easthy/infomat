@@ -462,3 +462,25 @@ input.checkbox-round:checked + label
     max-width: 320px;
     overflow-x: hidden;
 }
+.clears {
+	clear: both;
+}
+.screensaver-type-change {
+	font-size: 20px;
+}
+.screensavers-controls {
+	float:right;
+	padding:5px 15px 0 0;
+}
+.tui-image-editor-controls .header {
+	float:left;
+	padding:5px 15px 0 0;
+	height: 60px;
+}
+#video-preview {
+	background:#ccc;
+}
+#video .menu {
+	float:left;
+	padding:5px 0 0 0;
+}

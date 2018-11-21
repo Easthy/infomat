@@ -40,7 +40,43 @@
 	</div>
 
 	<div class="block-main white-content">
-       <?php echo $this->element('screensaver-basic')?>
+		<ul class="nav nav-tabs screensaver-type-change">
+			<li class="nav-item">
+    			<a class="nav-link active" href="#img" data-toggle="tab">Изображение</a>
+  			</li>
+  			<li class="nav-item">
+  				<a class="nav-link" href="#video" data-toggle="tab">Видео</a>
+  			</li>
+  		</ul>
+
+  		<div class="screensavers-controls">
+            <ul class="menu">
+                <li class="menu-item border" id="btn-upload">Сохранить для терминала</li>
+                <li class="menu-item border" id="btn-activate">Активировать</li>
+                <li class="menu-item border" id="btn-delete">Удалить</li>
+            </ul>
+  		</div>
+
+		<div class="tab-content">
+			<div id="img" class="tab-pane container active">
+				<?php echo $this->element('screensaver-basic')?>
+			</div>
+			<div id="video" class="tab-pane container fade">
+				<ul class="menu">
+                    <li class="menu-item border input-wrapper">
+                        Выбрать видео
+                        <input type="file" accept="video/*" id="input-video-file">
+                    </li>
+                </ul>
+                <div class="clears"></div>
+				<!-- 16:9 aspect ratio -->
+				<div class="embed-responsive embed-responsive-16by9">
+					<video id="video-preview" no-controls="" autoplay="" loop="" data-setup="{}">
+  						<source id="video-preview-source" src="" type="video/mp4">
+					</video>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -89,6 +125,32 @@ $(function(){
 	        </div>';
 		$(new_screensaver).appendTo('.sidebar');
 		$('[data-image-new]').click();
+	});
+
+
+	// Video
+	$btnVideoFile = $('#input-video-file');
+	$btnVideoFile.on('change',function(){
+    	var file;
+    	file = event.target.files[0];
+    	if (!isValidFileType(file.name,'video')) {
+    	    alert('Выбранный файл не может быть обработан');
+    	    return;
+    	}
+		var $source = $('#video-preview-source');
+		$source[0].src = URL.createObjectURL(this.files[0]);
+  		$source.parent()[0].load();
+	});
+	//
+
+	$('.screensaver-type-change a').on('click',function(){
+		$('#video-preview')[0].pause();
+		setTimeout(function(){
+			if($('#video').is(':visible')===true){
+				$('#video-preview')[0].play();
+				console.log('play as visible is: ',$('#video').is(':visible'));
+			}
+		},500);
 	});
 
 	$('.show-screensaver:first').click();

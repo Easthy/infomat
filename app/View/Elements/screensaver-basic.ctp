@@ -4,18 +4,16 @@
         <div class="body-container">
             <div class="tui-image-editor-controls">
                 <div class="header">
-                    <span class="name"></span>
                     <ul class="menu">
                         <li class="menu-item border input-wrapper">
-                            Выбрать файл
+                            Выбрать изображение
                             <input type="file" accept="image/*" id="input-image-file">
                         </li>
                         <li class="menu-item border" id="btn-download">Сохранить на ПК</li>
-                        <li class="menu-item border" id="btn-upload">Сохранить для терминала</li>
-                        <li class="menu-item border" id="btn-activate">Активировать</li>
-                        <li class="menu-item border" id="btn-delete">Удалить</li>
                     </ul>
+                    <span class="name"></span>
                 </div>
+                <div class="clears"></div>
                 <ul class="menu">
                     <li class="menu-item disabled" id="btn-undo">Отменить</li>
                     <li class="menu-item disabled" id="btn-redo">Вернуть</li>

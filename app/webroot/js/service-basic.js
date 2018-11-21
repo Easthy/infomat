@@ -469,12 +469,16 @@ $inputBrushWidthRange.on('change', function() {
 
 $inputImage.on('change', function(event) {
     var file;
+    file = event.target.files[0];
 
     if (!supportingFileAPI) {
-        alert('This browser does not support file-api');
+        alert('Ваш браузер не поддерживает API файлов');
     }
-
-    file = event.target.files[0];
+    if (!isValidFileType(file.name,'image')) {
+        alert('Выбранный файл не может быть обработан');
+        return;
+    }
+    
     imageEditor.loadImageFromFile(file).then(result => {
         console.log(result);
         imageEditor.clearUndoStack();

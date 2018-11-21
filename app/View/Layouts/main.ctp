@@ -34,22 +34,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
 	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-	
-	<?php
-		echo $this->Html->meta('icon');
 
-		// echo $this->Html->css('cake.generic');
-		echo $this->Html->css(['main','addons']);
-
-		// echo $this->Html->script([
-		// 	'jquery-3.3.1.min'
-		// ]);
-
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
-	
 	<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU" type="text/javascript"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/ru.js"></script>
@@ -63,6 +48,20 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ru.min.js"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+	
+	<?php
+		echo $this->Html->meta('icon');
+
+		echo $this->Html->css(['main','addons']);
+
+		echo $this->Html->script([
+			'main'
+		]);
+
+		echo $this->fetch('meta');
+		echo $this->fetch('css');
+		echo $this->fetch('script');
+	?>
 
 	<!-- Insert this line after script imports -->
 	<script>if (window.module) module = window.module;</script>
