@@ -58,37 +58,44 @@ class ScreensaverController extends AppController {
 	public function upload() {
 		$this->layout = false;
 		$this->autoRender = false; 
-
+		# Detect filetype
+		$img 			= !empty($_POST['screensaver-image']) ? base64_decode( $_POST['screensaver-image'] ) : false;
+		$video 			= !empty($_FILES['screensaver-video']) ? $_FILES['screensaver-video'] : false;
         # Saving file
-		$img = base64_decode( $_POST['base64Image'] );
-		$random_string = CakeText::uuid();
-			
+		$random_string 	= CakeText::uuid();
 		// Папка и полный путь к файлу для сохранения скринсейвера
-		$dir_to_store = 'img/agency_'.(AppModel::get_agency_id()).DS.'screensavers';
-		$file = $dir_to_store.DS.$random_string.'_'.(AppModel::get_agency_id()).'.png';
+		$file_type 		= !empty($img) ? 'img' : 'video';
+		$extension 		= !empty($img) ? 'png' : pathinfo($_FILES['screensaver-video']['name'], PATHINFO_EXTENSION);
+		$dir_to_store 	= $file_type.DS.'agency_'.(AppModel::get_agency_id()).DS.'screensavers';
+		$file 			= $dir_to_store.DS.$random_string.'_'.(AppModel::get_agency_id()).'.'.$extension;
+		//
 		// Проверяем есть ли указанный путь и создаём если нет
 		if ( !file_exists( WWW_ROOT.$dir_to_store ) ){
-			mkdir( $dir_to_store, 0777, true);
+			mkdir( WWW_ROOT.$dir_to_store, 0777, true);
 		}
-		// Записываем данные в файл
-		file_put_contents(WWW_ROOT.$file,$img);
 
+		// Записываем данные в файл
+		if ( !empty($img) ){
+			file_put_contents(WWW_ROOT.$file,$img);	
+		}
+		if( !empty($video) ){
+			move_uploaded_file($video['tmp_name'], WWW_ROOT.$file);
+		}
+		
 		$data = array(
-			'active' 		=> !empty($this->request->data['active'])? $this->request->data['active'] : false,
-			'name'   		=> !empty($this->request->data['name'])? $this->request->data['name'] : 'Заставка',
+			'active' 		=> !empty($this->request->data['screensaver-active'])? $this->request->data['screensaver-active'] : false,
+			'name'   		=> !empty($this->request->data['screensaver-name'])? $this->request->data['screensaver-name'] : 'Заставка',
 			'agency_id' 	=> AppModel::get_agency_id()
 		);
-		if(!empty($this->request->data['id'])){
-			$data['id'] = $this->request->data['id'];
+		if(!empty($this->request->data['screensaver-id'])){
+			$data['id'] = $this->request->data['screensaver-id'];
 		}
-		$this->log($this->request->data['id']);
-		
 		if ( !empty($data['active']) ){
 			$this->Screensavers->query('UPDATE public.screen_saver SET active=false WHERE agency_id=:agency_id',array('agency_id'=>AppModel::get_agency_id()));
 		}
 		$screensavers = $this->Screensavers->save($data);
 
-		$screensaver_id = $this->Screensavers->getLastInsertId() ? $this->Screensavers->getLastInsertId() : $this->request->data['id'];
+		$screensaver_id = $this->Screensavers->getLastInsertId() ? $this->Screensavers->getLastInsertId() : $this->request->data['screensaver-id'];
 		$screenfile = $this->ScreenFile->findByScreensaverId($screensaver_id);
 		$data = array(
 			'screensaver_id' => $screensaver_id,

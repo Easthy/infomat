@@ -1,5 +1,5 @@
 <?=$this->Html->css('screensaver')?>
-
+<link type="text/css" href="/css/service-basic.css" rel="stylesheet">
 
 <div class="sidebar white-content">
     <div class="p-3 d-flex justify-content-between all-categories">
@@ -57,26 +57,33 @@
             </ul>
   		</div>
 
-		<div class="tab-content">
-			<div id="img" class="tab-pane container active">
-				<?php echo $this->element('screensaver-basic')?>
-			</div>
-			<div id="video" class="tab-pane container fade">
-				<ul class="menu">
-                    <li class="menu-item border input-wrapper">
-                        Выбрать видео
-                        <input type="file" accept="video/*" id="input-video-file">
-                    </li>
-                </ul>
-                <div class="clears"></div>
-				<!-- 16:9 aspect ratio -->
-				<div class="embed-responsive embed-responsive-16by9">
-					<video id="video-preview" no-controls="" autoplay="" loop="" data-setup="{}">
-  						<source id="video-preview-source" src="" type="video/mp4">
-					</video>
+  		<form id="screensaver-upload" action="/screensaver/upload" enctype="multipart/form-data" method="POST">
+			<input id="screensaver-image" type="hidden" name="screensaver-image" />
+			<input id="screensaver-name" type="hidden" name="screensaver-name" />
+			<input id="screensaver-id" type="hidden" name="screensaver-id" />
+			<input id="screensaver-active" type="hidden" name="screensaver-active" />
+			
+			<div class="tab-content">
+				<div id="img" class="tab-pane container active">
+					<?php echo $this->element('screensaver-basic')?>
+				</div>
+				<div id="video" class="tab-pane container fade">
+					<ul class="menu">
+            	        <li class="menu-item border input-wrapper">
+            	            Выбрать видео
+            	            <input type="file" accept="video/*" id="input-video-file" name="screensaver-video">
+            	        </li>
+            	    </ul>
+            	    <div class="clears"></div>
+					<!-- 16:9 aspect ratio -->
+					<div class="embed-responsive embed-responsive-16by9">
+						<video id="video-preview" no-controls="" autoplay="" loop="" data-setup="{}">
+  							<source id="video-preview-source" src="" type="video/mp4">
+						</video>
+					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </div>
 

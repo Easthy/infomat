@@ -537,40 +537,25 @@ $btnDelete.on('click',function(){
 });
 
 $btnUpload.on('click', function() {
+    var base64Image;
+    base64Image = getImageScreensaver();
+    $('#screensaver-image').val(base64Image); 
+    // Check image or video
+    if ($('#video').is(':visible')){
+        $('#screensaver-image').val('');
+    }
+    //
+    $('#screensaver-name').val($('#screensaver-name').val());
+    $('#screensaver-id').val(($('.show-screensaver.active').data('image-id') ? $('.show-screensaver.active').data('image-id') : ''));
+    $('#screensaver-active').val($btnActivate.hasClass('activated'));
+    $('#screensaver-upload').submit();
+});
+
+function getImageScreensaver(){
     var imageName = imageEditor.getImageName();
     var base64Image = imageEditor.toDataURL();
-
-    var base64Image = base64Image.split("data:image/png;base64,")[1];
-
-    var form = document.createElement("form");
-    var element1 = document.createElement("input"); 
-    var element2 = document.createElement("input");  
-    var element3 = document.createElement("input");  
-    var element4 = document.createElement("input");  
-
-    form.method = "POST";
-    form.action = "/screensaver/upload";   
-
-    element1.value=base64Image;
-    element1.name="base64Image";
-    form.appendChild(element1);  
-
-    element2.value=$('#screensaver-name').val();
-    element2.name="name";
-    form.appendChild(element2);
-
-    element3.value = ($('.show-screensaver.active').data('image-id') ? $('.show-screensaver.active').data('image-id') : '');
-    element3.name = 'id';
-    form.appendChild(element3);
-
-    element4.value = $btnActivate.hasClass('activated');
-    element4.name = 'active';
-    form.appendChild(element4);
-
-    document.body.appendChild(form);
-
-    form.submit();
-});
+    return base64Image.split("data:image/png;base64,")[1];
+}
 
 // control draw line mode
 $btnDrawLine.on('click', function() {

@@ -1,5 +1,4 @@
         <link type="text/css" href="https://cdn.rawgit.com/nhnent/tui.color-picker/v2.0.0/dist/tui-color-picker.css" rel="stylesheet">
-        <link type="text/css" href="/css/service-basic.css" rel="stylesheet">
 
         <div class="body-container">
             <div class="tui-image-editor-controls">
@@ -7,7 +6,7 @@
                     <ul class="menu">
                         <li class="menu-item border input-wrapper">
                             Выбрать изображение
-                            <input type="file" accept="image/*" id="input-image-file">
+                            <input type="file" accept="image/*" id="input-image-file" name="image">
                         </li>
                         <li class="menu-item border" id="btn-download">Сохранить на ПК</li>
                     </ul>
