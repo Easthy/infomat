@@ -545,7 +545,7 @@ $btnUpload.on('click', function() {
         $('#screensaver-image').val('');
     }
     //
-    $('#screensaver-name').val($('#screensaver-name').val());
+    $('#screensaver-name').val($('#current-screensaver-name').val());
     $('#screensaver-id').val(($('.show-screensaver.active').data('image-id') ? $('.show-screensaver.active').data('image-id') : ''));
     $('#screensaver-active').val($btnActivate.hasClass('activated'));
     $('#screensaver-upload').submit();

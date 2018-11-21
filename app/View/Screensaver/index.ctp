@@ -27,7 +27,7 @@
 
 	<div class="block-top white-content">
 		<div class="p-3 d-flex justify-content-between">
-			<span class="block-top-title"><input id="screensaver-name" type="name" value="" /></span>
+			<span class="block-top-title"><input id="current-screensaver-name" type="name" value="" /></span>
             <div class="btn-group form-toggle" data-toggle="modal" data-target="#activityModal">
                 <div class="btn btn-dark-green">
                     <img src="/img/icons/plus_white.png">
