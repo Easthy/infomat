@@ -530,24 +530,32 @@ function activateScreensaver(id,active){
 $btnDelete.on('click',function(){
     var id = $('.show-screensaver.active').data('screensaver-id');
     if( !id ){
-        alert('Заставка ещё не сохранена');
+        $('.show-screensaver:first').click();
+        if( $('.show-screensaver').length > 1 ){
+            $('[data-screensaver-new]').remove();
+        }
         return;
     }
     window.location.href='/screensaver/delete/'+id;
 });
 
 $btnUpload.on('click', function() {
-    var base64Image;
+    var base64Image, screensaverName, screensaverActive, screensaverId, screensaverLink;
     base64Image = getImageScreensaver();
+    screensaverName = $('#current-screensaver-name').val();
+    screensaverActive = $btnActivate.hasClass('activated');
+    screensaverId = ($('.show-screensaver.active').data('screensaver-id') ? $('.show-screensaver.active').data('screensaver-id') : '');
+    screensaverLink = $('.show-screensaver.active').data('screensaver-link');
     $('#screensaver-image').val(base64Image); 
     // Check image or video
     if ($('#video').is(':visible')){
         $('#screensaver-image').val('');
     }
     //
-    $('#screensaver-name').val($('#current-screensaver-name').val());
-    $('#screensaver-id').val(($('.show-screensaver.active').data('screensaver-id') ? $('.show-screensaver.active').data('screensaver-id') : ''));
-    $('#screensaver-active').val($btnActivate.hasClass('activated'));
+    $('#screensaver-link').val(screensaverLink);
+    $('#screensaver-name').val(screensaverName);
+    $('#screensaver-id').val(screensaverId);
+    $('#screensaver-active').val(screensaverActive);
     $('#screensaver-upload').submit();
 });
 

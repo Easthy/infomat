@@ -11,7 +11,7 @@
 	        <hr class="m-0">
 	        <div class="p-3 d-flex justify-content-between show-screensaver" 
 	        	data-screensaver-id="<?= $cat['id'] ?>" 
-	        	data-screensaver-path="/<?= $cat['link_file'] ?>"
+	        	data-screensaver-link="/<?= $cat['link_file'] ?>"
 	        	data-screensaver-name="<?= $cat['name'] ?>"
 	        	data-screensaver-active="<?= $cat['active'] ?>"
 	        >
@@ -19,6 +19,17 @@
 	            <span class="text-12 text-700 text-design-green"></span> 
 	        </div>
 	    <?php endforeach; ?>
+	<?php else:?>
+	        <hr class="m-0">
+	        <div class="p-3 d-flex justify-content-between show-screensaver" 
+	        	data-screensaver-id="" 
+	        	data-screensaver-link=""
+	        	data-screensaver-name=""
+	        	data-screensaver-active=""
+	        >
+	            <span class="text-14 text-600 screensaver-name">Новая заставка</span>
+	            <span class="text-12 text-700 text-design-green"></span> 
+	        </div>
 	<?php endif;?>
 </div>
 
@@ -62,6 +73,7 @@
 			<input id="screensaver-name" type="hidden" name="screensaver-name" />
 			<input id="screensaver-id" type="hidden" name="screensaver-id" />
 			<input id="screensaver-active" type="hidden" name="screensaver-active" />
+			<input id="screensaver-link" type="hidden" name="screensaver-link" />
 			
 			<div class="tab-content">
 				<div id="img" class="tab-pane container active">
@@ -102,20 +114,20 @@ $(function(){
 		if( screensaverActive == 1 ){
 			$('#btn-activate').addClass('activated');
 		}
-		var screensaverFile = $(this).data('screensaver-path');
-		var screensaverImage = isValidFileType(screensaverFile,'image');
+		var screensaverLink = $(this).data('screensaver-link');
+		var screensaverImage = isValidFileType(screensaverLink,'image');
 
-	    if( screensaverImage && screensaverFile && UrlExists(screensaverFile) ){
+	    if( screensaverImage && screensaverLink && UrlExists(screensaverLink) ){
 	    	$('.nav-item [href="#img"]').click();
 			// Load sample image
-			imageEditor.loadImageFromURL(screensaverFile, 'SampleImage').then(sizeValue => {
+			imageEditor.loadImageFromURL(screensaverLink, 'SampleImage').then(sizeValue => {
 		    	console.log(sizeValue);
 		    	imageEditor.clearUndoStack();
 			});
 		}else{
 			// $('#input-video-file').val('');
 			$('.nav-item [href="#video"]').click();
-			previewVideo(screensaverFile);
+			previewVideo(screensaverLink);
 		}
 	});
 
@@ -127,16 +139,16 @@ $(function(){
 		var new_screensaver = '<hr class="m-0">\
 	        <div class="p-3 d-flex justify-content-between show-screensaver" \
 	        	data-screensaver-id="" \
-	        	data-screensaver-path=""\
+	        	data-screensaver-link=""\
 	        	data-screensaver-name=""\
 	        	data-screensaver-active=""\
 	        	data-screensaver-new\
 	        >\
-	            <span class="text-14 text-600">Новая заставка</span>\
+	            <span class="text-14 text-600 screensaver-name">Новая заставка</span>\
 	            <span class="text-12 text-700 text-design-green"></span> \
 	        </div>';
 		$(new_screensaver).appendTo('.sidebar');
-		$('[data-image-new]').click();
+		$('[data-screensaver-new]').click();
 	});
 
 	$('#current-screensaver-name').on('keyup',function(){

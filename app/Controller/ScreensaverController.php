@@ -61,6 +61,7 @@ class ScreensaverController extends AppController {
 		# Detect filetype
 		$img 			= !empty($_POST['screensaver-image']) ? base64_decode( $_POST['screensaver-image'] ) : false;
 		$video 			= !empty($_FILES['screensaver-video']) ? $_FILES['screensaver-video'] : false;
+
         # Saving file
 		$random_string 	= CakeText::uuid();
 		// Папка и полный путь к файлу для сохранения скринсейвера
@@ -78,7 +79,7 @@ class ScreensaverController extends AppController {
 		if ( !empty($img) ){
 			file_put_contents(WWW_ROOT.$file,$img);	
 		}
-		if( !empty($video) ){
+		if( !empty($video) && $video['size'] > 0 ){
 			move_uploaded_file($video['tmp_name'], WWW_ROOT.$file);
 		}
 		
@@ -96,15 +97,20 @@ class ScreensaverController extends AppController {
 		$screensavers = $this->Screensavers->save($data);
 
 		$screensaver_id = $this->Screensavers->getLastInsertId() ? $this->Screensavers->getLastInsertId() : $this->request->data['screensaver-id'];
-		$screenfile = $this->ScreenFile->findByScreensaverId($screensaver_id);
-		$data = array(
-			'screensaver_id' => $screensaver_id,
-			'link_file' => $file
-		);
-		if( !empty($screenfile['ScreenFile']['id']) ){
-			$data['id'] = $screenfile['ScreenFile']['id'];
+		
+		// Update screen file only if file was uploaded
+		if ($img || $video['size'] > 0){
+			$screenfile = $this->ScreenFile->findByScreensaverId($screensaver_id);
+			$data = array(
+				'screensaver_id' => $screensaver_id,
+				'link_file' => $file
+			);
+			if( !empty($screenfile['ScreenFile']['id']) ){
+				$data['id'] = $screenfile['ScreenFile']['id'];
+			}
+			$this->ScreenFile->save($data);
 		}
-		$this->ScreenFile->save($data);
+
 		$this->redirect('/screensaver');
 	}
 

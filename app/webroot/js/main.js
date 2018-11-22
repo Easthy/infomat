@@ -9,7 +9,7 @@ $(function(){
 	// One validation function for all file types    
 	window.isValidFileType = function(fName, fType) {
 	    console.log('fName: ',fName,'fType: ',fType);
-	    return extensionLists[fType].indexOf(fName.split('.').pop()) > -1;
+	    return extensionLists[fType].indexOf(fName.split('.').pop().toLocaleLowerCase()) > -1;
 	}
 	window.UrlExists = function (url) {
 	    var http = new XMLHttpRequest();
