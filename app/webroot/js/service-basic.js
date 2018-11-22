@@ -528,7 +528,7 @@ function activateScreensaver(id,active){
 }
 
 $btnDelete.on('click',function(){
-    var id = $('.show-screensaver.active').data('image-id');
+    var id = $('.show-screensaver.active').data('screensaver-id');
     if( !id ){
         alert('Заставка ещё не сохранена');
         return;
@@ -546,7 +546,7 @@ $btnUpload.on('click', function() {
     }
     //
     $('#screensaver-name').val($('#current-screensaver-name').val());
-    $('#screensaver-id').val(($('.show-screensaver.active').data('image-id') ? $('.show-screensaver.active').data('image-id') : ''));
+    $('#screensaver-id').val(($('.show-screensaver.active').data('screensaver-id') ? $('.show-screensaver.active').data('screensaver-id') : ''));
     $('#screensaver-active').val($btnActivate.hasClass('activated'));
     $('#screensaver-upload').submit();
 });

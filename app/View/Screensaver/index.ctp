@@ -15,7 +15,7 @@
 	        	data-screensaver-name="<?= $cat['name'] ?>"
 	        	data-screensaver-active="<?= $cat['active'] ?>"
 	        >
-	            <span class="text-14 text-600"><?= $cat['name'] ?></span>
+	            <span class="text-14 text-600 screensaver-name"><?= $cat['name'] ?></span>
 	            <span class="text-12 text-700 text-design-green"></span> 
 	        </div>
 	    <?php endforeach; ?>
@@ -93,26 +93,29 @@ $(function(){
 	$(document).on('click','.show-screensaver',function(){
 		$(this).siblings().removeClass('active');
 		$(this).addClass('active');
-		$('#screensaver-name').val( $(this).data('screensaver-name') );
 		$('#btn-activate').removeClass('activated');
-		if( $(this).data('screensaver-active') == 1 ){
+		//
+		var screensaverName = $(this).data('screensaver-name');
+		var screensaverActive = $(this).data('screensaver-active');
+
+		$('#current-screensaver-name').val(screensaverName);
+		if( screensaverActive == 1 ){
 			$('#btn-activate').addClass('activated');
 		}
-		var file = $(this).data('screensaver-path');
-		var screensaverImage = isValidFileType(file,'image');
+		var screensaverFile = $(this).data('screensaver-path');
+		var screensaverImage = isValidFileType(screensaverFile,'image');
 
-	    if( screensaverImage && file && UrlExists(file) ){
+	    if( screensaverImage && screensaverFile && UrlExists(screensaverFile) ){
 	    	$('.nav-item [href="#img"]').click();
 			// Load sample image
-			imageEditor.loadImageFromURL(file, 'SampleImage').then(sizeValue => {
+			imageEditor.loadImageFromURL(screensaverFile, 'SampleImage').then(sizeValue => {
 		    	console.log(sizeValue);
 		    	imageEditor.clearUndoStack();
 			});
 		}else{
+			// $('#input-video-file').val('');
 			$('.nav-item [href="#video"]').click();
-			var $source = $('#video-preview-source');
-			$source[0].src = file;
-  			$source.parent()[0].load();
+			previewVideo(screensaverFile);
 		}
 	});
 
@@ -136,6 +139,10 @@ $(function(){
 		$('[data-image-new]').click();
 	});
 
+	$('#current-screensaver-name').on('keyup',function(){
+		var screensaverName = $(this).val();
+		$('.show-screensaver.active .screensaver-name').text(screensaverName);
+	});
 
 	// Video
 	$btnVideoFile = $('#input-video-file');
@@ -146,10 +153,15 @@ $(function(){
     	    alert('Выбранный файл не может быть обработан');
     	    return;
     	}
-		var $source = $('#video-preview-source');
-		$source[0].src = URL.createObjectURL(this.files[0]);
-  		$source.parent()[0].load();
+		var src = URL.createObjectURL(this.files[0]);
+  		previewVideo(src);
 	});
+
+	function previewVideo(src){
+		var $source = $('#video-preview-source');
+		$source[0].src = src;
+		$source.parent()[0].load();
+	}
 	//
 
 	$('.screensaver-type-change a').on('click',function(){
