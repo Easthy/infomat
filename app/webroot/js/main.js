@@ -11,4 +11,10 @@ $(function(){
 	    console.log('fName: ',fName,'fType: ',fType);
 	    return extensionLists[fType].indexOf(fName.split('.').pop()) > -1;
 	}
+	window.UrlExists = function (url) {
+	    var http = new XMLHttpRequest();
+	    http.open('HEAD', url, false);
+	    http.send();
+	    return http.status!=404;
+	}
 });

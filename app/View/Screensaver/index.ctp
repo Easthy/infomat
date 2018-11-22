@@ -10,10 +10,10 @@
 	    <?php foreach ($screensavers as $cat): ?>
 	        <hr class="m-0">
 	        <div class="p-3 d-flex justify-content-between show-screensaver" 
-	        	data-image-id="<?= $cat['id'] ?>" 
-	        	data-image-path="/<?= $cat['link_file'] ?>"
-	        	data-image-name="<?= $cat['name'] ?>"
-	        	data-image-active="<?= $cat['active'] ?>"
+	        	data-screensaver-id="<?= $cat['id'] ?>" 
+	        	data-screensaver-path="/<?= $cat['link_file'] ?>"
+	        	data-screensaver-name="<?= $cat['name'] ?>"
+	        	data-screensaver-active="<?= $cat['active'] ?>"
 	        >
 	            <span class="text-14 text-600"><?= $cat['name'] ?></span>
 	            <span class="text-12 text-700 text-design-green"></span> 
@@ -89,43 +89,45 @@
 
 <script type="text/javascript">
 $(function(){
-	window.UrlExists = function (url)
-	{
-	    var http = new XMLHttpRequest();
-	    http.open('HEAD', url, false);
-	    http.send();
-	    return http.status!=404;
-	}
-
+	// Load screensaver data
 	$(document).on('click','.show-screensaver',function(){
 		$(this).siblings().removeClass('active');
 		$(this).addClass('active');
-		$('#screensaver-name').val( $(this).data('image-name') );
+		$('#screensaver-name').val( $(this).data('screensaver-name') );
 		$('#btn-activate').removeClass('activated');
-		if( $(this).data('image-active') == 1 ){
+		if( $(this).data('screensaver-active') == 1 ){
 			$('#btn-activate').addClass('activated');
 		}
-		var file = $(this).data('image-path');
-	    if( file && UrlExists(file) ){
+		var file = $(this).data('screensaver-path');
+		var screensaverImage = isValidFileType(file,'image');
+
+	    if( screensaverImage && file && UrlExists(file) ){
+	    	$('.nav-item [href="#img"]').click();
 			// Load sample image
 			imageEditor.loadImageFromURL(file, 'SampleImage').then(sizeValue => {
 		    	console.log(sizeValue);
 		    	imageEditor.clearUndoStack();
 			});
+		}else{
+			$('.nav-item [href="#video"]').click();
+			var $source = $('#video-preview-source');
+			$source[0].src = file;
+  			$source.parent()[0].load();
 		}
 	});
 
+	// Create new screensaver
 	$(document).on('click','#btn-create',function(){
-		if($('[data-image-new]').length!=0){
+		if($('[data-screensaver-new]').length!=0){
 			return;
 		}
 		var new_screensaver = '<hr class="m-0">\
 	        <div class="p-3 d-flex justify-content-between show-screensaver" \
-	        	data-image-id="" \
-	        	data-image-path=""\
-	        	data-image-name=""\
-	        	data-image-active=""\
-	        	data-image-new\
+	        	data-screensaver-id="" \
+	        	data-screensaver-path=""\
+	        	data-screensaver-name=""\
+	        	data-screensaver-active=""\
+	        	data-screensaver-new\
 	        >\
 	            <span class="text-14 text-600">Новая заставка</span>\
 	            <span class="text-12 text-700 text-design-green"></span> \
