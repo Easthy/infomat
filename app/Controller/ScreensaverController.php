@@ -80,7 +80,17 @@ class ScreensaverController extends AppController {
 			file_put_contents(WWW_ROOT.$file,$img);	
 		}
 		if( !empty($video) && $video['size'] > 0 ){
-			move_uploaded_file($video['tmp_name'], WWW_ROOT.$file);
+            // Конвертирование видео
+            $uploadfile = WWW_ROOT.$file;
+            move_uploaded_file($video['tmp_name'], $uploadfile);
+            try{
+                putenv("uploadfile=$uploadfile");
+                exec( "sh ".ROOT.DS."app/shell_script/ffmpeg.sh $uploadfile 2>&1", $retval );
+                $file .= '.webm';
+            }catch( Exception $e ){
+                $this->log( 'Conversion video appeal file error '.$file.' '.date('d-m-Y H:i:s') );
+            }
+            //
 		}
 		
 		$data = array(
