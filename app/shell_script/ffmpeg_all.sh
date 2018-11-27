@@ -1,7 +1,5 @@
 #!/bin/bash
-
 directory='/var/www/infomat/app/webroot/video/';
-
 PIDFILE=$directory"/"converting.pid
 
 if [ -f $PIDFILE ]
@@ -21,14 +19,14 @@ echo $$ > $PIDFILE
 # Check PID file exists
 if [ -f $PIDFILE ]
 then
-    cd $directory
+    cd $directory;
 	files=$(find $(directory) -type f -name "*.mp4");
 
 	echo "Files list: "$files; 
 	# Run converting
 	for f in $files;
 		do
-		echo "Converting file: $f";
+		echo "Converting file: "$f;
 		ffmpeg -i $f ${f%.mp4}.mp4.webm;
 		echo "Removing file: "$f;
 		rm -f $f;
