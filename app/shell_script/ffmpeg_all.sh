@@ -35,7 +35,8 @@ then
 	done
 
 	t=$(date '+%d/%m/%Y %H:%M:%S');
-	echo "DONE: "$t
+	echo "DONE: "$t;
+	rm $PIDFILE;
 else
     echo 'Failed to start job'
 fi
