@@ -4,5 +4,5 @@ files=$(find $(directory) -type f -name "*.mp4")
 for f in $files; 
 	do
 		ffmpeg -i $f ${f%.mp4}.mp4.webm;
-		rm $f;
+		rm -f $f;
 done 
