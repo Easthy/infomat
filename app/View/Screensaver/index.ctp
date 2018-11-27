@@ -162,7 +162,7 @@ $(function(){
     	var file;
     	file = event.target.files[0];
     	if (!isValidFileType(file.name,'video')) {
-    	    alert('Выбранный файл не может быть обработан');
+    	    alert('Выбранный файл не может быть обработан. Допускаются файлы в формате .mp4');
     	    return;
     	}
 		var src = URL.createObjectURL(this.files[0]);
