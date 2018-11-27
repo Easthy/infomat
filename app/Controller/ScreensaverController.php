@@ -118,10 +118,8 @@ class ScreensaverController extends AppController {
 			);
 			if( !empty($screenfile['ScreenFile']['id']) ){
 				$data['id'] = $screenfile['ScreenFile']['id'];
-				try{
+				if (file_exists(WWW_ROOT.$screenfile['ScreenFile']['link_file'])){
 					unlink(WWW_ROOT.$screenfile['ScreenFile']['link_file']);	
-				}catch(Exception $e){
-					$this->log($e);
 				}
 			}
 			$this->ScreenFile->save($data);
@@ -149,10 +147,8 @@ class ScreensaverController extends AppController {
 			)
 		);
 		$screenfile = $this->ScreenFile->findByScreensaverId($screensaver['Screensavers']['id']);
-		try{
+		if (file_exists(WWW_ROOT.$screenfile['ScreenFile']['link_file'])){
 			unlink(WWW_ROOT.$screenfile['ScreenFile']['link_file']);	
-		}catch(Exception $e){
-			$this->log($e);
 		}
 		
 		$this->ScreenFile->query(
