@@ -2,10 +2,10 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.14
--- Dumped by pg_dump version 10.5 (Ubuntu 10.5-1.pgdg16.04+1)
+-- Dumped from database version 9.5.15
+-- Dumped by pg_dump version 10.6 (Ubuntu 10.6-1.pgdg16.04+1)
 
--- Started on 2018-11-01 15:26:07 MSK
+-- Started on 2018-12-06 13:54:25 MSK
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,7 +19,7 @@ SET row_security = off;
 
 DROP DATABASE infomat_qt;
 --
--- TOC entry 2528 (class 1262 OID 16407660)
+-- TOC entry 2533 (class 1262 OID 16407660)
 -- Name: infomat_qt; Type: DATABASE; Schema: -; Owner: postgres
 --
 
@@ -49,7 +49,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2531 (class 0 OID 0)
+-- TOC entry 2536 (class 0 OID 0)
 -- Dependencies: 1
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -58,7 +58,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- TOC entry 245 (class 1255 OID 16615849)
+-- TOC entry 246 (class 1255 OID 16615849)
 -- Name: _calc_interval(timestamp without time zone, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -112,7 +112,7 @@ CREATE TABLE public.activity (
 ALTER TABLE public.activity OWNER TO postgres;
 
 --
--- TOC entry 2532 (class 0 OID 0)
+-- TOC entry 2537 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: TABLE activity; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -121,7 +121,7 @@ COMMENT ON TABLE public.activity IS 'Мероприятия учреждений
 
 
 --
--- TOC entry 2533 (class 0 OID 0)
+-- TOC entry 2538 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.agency_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -130,7 +130,7 @@ COMMENT ON COLUMN public.activity.agency_id IS 'учреждение';
 
 
 --
--- TOC entry 2534 (class 0 OID 0)
+-- TOC entry 2539 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.type_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -139,7 +139,7 @@ COMMENT ON COLUMN public.activity.type_id IS 'тип мероприятия';
 
 
 --
--- TOC entry 2535 (class 0 OID 0)
+-- TOC entry 2540 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.start_date; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -148,7 +148,7 @@ COMMENT ON COLUMN public.activity.start_date IS 'дата начала';
 
 
 --
--- TOC entry 2536 (class 0 OID 0)
+-- TOC entry 2541 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.end_date; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -157,7 +157,7 @@ COMMENT ON COLUMN public.activity.end_date IS 'дата окончания';
 
 
 --
--- TOC entry 2537 (class 0 OID 0)
+-- TOC entry 2542 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.name; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -166,7 +166,7 @@ COMMENT ON COLUMN public.activity.name IS 'тема мероприятия';
 
 
 --
--- TOC entry 2538 (class 0 OID 0)
+-- TOC entry 2543 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.description; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -175,7 +175,7 @@ COMMENT ON COLUMN public.activity.description IS 'описание';
 
 
 --
--- TOC entry 2539 (class 0 OID 0)
+-- TOC entry 2544 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.report; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -184,7 +184,7 @@ COMMENT ON COLUMN public.activity.report IS 'отчёт';
 
 
 --
--- TOC entry 2540 (class 0 OID 0)
+-- TOC entry 2545 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.email; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -193,7 +193,7 @@ COMMENT ON COLUMN public.activity.email IS 'эл.почта';
 
 
 --
--- TOC entry 2541 (class 0 OID 0)
+-- TOC entry 2546 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.phone; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -202,7 +202,7 @@ COMMENT ON COLUMN public.activity.phone IS 'телефон';
 
 
 --
--- TOC entry 2542 (class 0 OID 0)
+-- TOC entry 2547 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.schedule; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -211,7 +211,7 @@ COMMENT ON COLUMN public.activity.schedule IS 'расписание';
 
 
 --
--- TOC entry 2543 (class 0 OID 0)
+-- TOC entry 2548 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.category_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -220,7 +220,7 @@ COMMENT ON COLUMN public.activity.category_id IS 'категория';
 
 
 --
--- TOC entry 2544 (class 0 OID 0)
+-- TOC entry 2549 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.place; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -229,7 +229,7 @@ COMMENT ON COLUMN public.activity.place IS 'Место проведения ме
 
 
 --
--- TOC entry 2545 (class 0 OID 0)
+-- TOC entry 2550 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.tamada; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -238,7 +238,7 @@ COMMENT ON COLUMN public.activity.tamada IS 'Ведущий мероприяти
 
 
 --
--- TOC entry 2546 (class 0 OID 0)
+-- TOC entry 2551 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.duration; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -247,7 +247,7 @@ COMMENT ON COLUMN public.activity.duration IS 'Продолжительност�
 
 
 --
--- TOC entry 2547 (class 0 OID 0)
+-- TOC entry 2552 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -257,7 +257,7 @@ COMMENT ON COLUMN public.activity.state IS '0 = состояние неизме�
 
 
 --
--- TOC entry 2548 (class 0 OID 0)
+-- TOC entry 2553 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: COLUMN activity.execution_state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -283,7 +283,7 @@ CREATE TABLE public.activity_category (
 ALTER TABLE public.activity_category OWNER TO postgres;
 
 --
--- TOC entry 2549 (class 0 OID 0)
+-- TOC entry 2554 (class 0 OID 0)
 -- Dependencies: 182
 -- Name: TABLE activity_category; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -292,7 +292,7 @@ COMMENT ON TABLE public.activity_category IS 'категории меропри�
 
 
 --
--- TOC entry 2550 (class 0 OID 0)
+-- TOC entry 2555 (class 0 OID 0)
 -- Dependencies: 182
 -- Name: COLUMN activity_category.name; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -301,7 +301,7 @@ COMMENT ON COLUMN public.activity_category.name IS 'наименование';
 
 
 --
--- TOC entry 2551 (class 0 OID 0)
+-- TOC entry 2556 (class 0 OID 0)
 -- Dependencies: 182
 -- Name: COLUMN activity_category.icon_path; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -325,7 +325,7 @@ CREATE SEQUENCE public.activity_category_id_seq
 ALTER TABLE public.activity_category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2552 (class 0 OID 0)
+-- TOC entry 2557 (class 0 OID 0)
 -- Dependencies: 183
 -- Name: activity_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -359,7 +359,7 @@ CREATE TABLE public.activity_event (
 ALTER TABLE public.activity_event OWNER TO postgres;
 
 --
--- TOC entry 2553 (class 0 OID 0)
+-- TOC entry 2558 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: TABLE activity_event; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -368,7 +368,7 @@ COMMENT ON TABLE public.activity_event IS 'события мероприятий
 
 
 --
--- TOC entry 2554 (class 0 OID 0)
+-- TOC entry 2559 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: COLUMN activity_event.activity_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -377,7 +377,7 @@ COMMENT ON COLUMN public.activity_event.activity_id IS 'мероприятие';
 
 
 --
--- TOC entry 2555 (class 0 OID 0)
+-- TOC entry 2560 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: COLUMN activity_event.start_time; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -386,7 +386,7 @@ COMMENT ON COLUMN public.activity_event.start_time IS 'время начала';
 
 
 --
--- TOC entry 2556 (class 0 OID 0)
+-- TOC entry 2561 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: COLUMN activity_event.end_time; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -395,7 +395,7 @@ COMMENT ON COLUMN public.activity_event.end_time IS 'время окончани
 
 
 --
--- TOC entry 2557 (class 0 OID 0)
+-- TOC entry 2562 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: COLUMN activity_event.date; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -404,7 +404,7 @@ COMMENT ON COLUMN public.activity_event.date IS 'дата';
 
 
 --
--- TOC entry 2558 (class 0 OID 0)
+-- TOC entry 2563 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: COLUMN activity_event.report; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -413,7 +413,7 @@ COMMENT ON COLUMN public.activity_event.report IS 'отчёт';
 
 
 --
--- TOC entry 2559 (class 0 OID 0)
+-- TOC entry 2564 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: COLUMN activity_event.duration; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -422,7 +422,7 @@ COMMENT ON COLUMN public.activity_event.duration IS 'Продолжительн�
 
 
 --
--- TOC entry 2560 (class 0 OID 0)
+-- TOC entry 2565 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: COLUMN activity_event.tamada; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -446,7 +446,7 @@ CREATE SEQUENCE public.activity_event_id_seq
 ALTER TABLE public.activity_event_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2561 (class 0 OID 0)
+-- TOC entry 2566 (class 0 OID 0)
 -- Dependencies: 185
 -- Name: activity_event_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -470,7 +470,7 @@ CREATE SEQUENCE public.activity_id_seq
 ALTER TABLE public.activity_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2562 (class 0 OID 0)
+-- TOC entry 2567 (class 0 OID 0)
 -- Dependencies: 186
 -- Name: activity_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -492,7 +492,7 @@ CREATE TABLE public.activity_periodicity (
 ALTER TABLE public.activity_periodicity OWNER TO postgres;
 
 --
--- TOC entry 2563 (class 0 OID 0)
+-- TOC entry 2568 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: TABLE activity_periodicity; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -516,7 +516,7 @@ CREATE SEQUENCE public.activity_periodicity_id_seq
 ALTER TABLE public.activity_periodicity_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2564 (class 0 OID 0)
+-- TOC entry 2569 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: activity_periodicity_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -542,7 +542,7 @@ CREATE TABLE public.activity_photo (
 ALTER TABLE public.activity_photo OWNER TO postgres;
 
 --
--- TOC entry 2565 (class 0 OID 0)
+-- TOC entry 2570 (class 0 OID 0)
 -- Dependencies: 187
 -- Name: COLUMN activity_photo.activity_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -551,7 +551,7 @@ COMMENT ON COLUMN public.activity_photo.activity_id IS '"Москва город
 
 
 --
--- TOC entry 2566 (class 0 OID 0)
+-- TOC entry 2571 (class 0 OID 0)
 -- Dependencies: 187
 -- Name: COLUMN activity_photo.path; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -560,7 +560,7 @@ COMMENT ON COLUMN public.activity_photo.path IS 'оригинальный раз
 
 
 --
--- TOC entry 2567 (class 0 OID 0)
+-- TOC entry 2572 (class 0 OID 0)
 -- Dependencies: 187
 -- Name: COLUMN activity_photo.event_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -584,7 +584,7 @@ CREATE SEQUENCE public.activity_photo_id_seq
 ALTER TABLE public.activity_photo_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2568 (class 0 OID 0)
+-- TOC entry 2573 (class 0 OID 0)
 -- Dependencies: 188
 -- Name: activity_photo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -607,7 +607,7 @@ CREATE TABLE public.activity_type (
 ALTER TABLE public.activity_type OWNER TO postgres;
 
 --
--- TOC entry 2569 (class 0 OID 0)
+-- TOC entry 2574 (class 0 OID 0)
 -- Dependencies: 189
 -- Name: TABLE activity_type; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -616,7 +616,7 @@ COMMENT ON TABLE public.activity_type IS 'типы мероприятий';
 
 
 --
--- TOC entry 2570 (class 0 OID 0)
+-- TOC entry 2575 (class 0 OID 0)
 -- Dependencies: 189
 -- Name: COLUMN activity_type.name; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -640,7 +640,7 @@ CREATE SEQUENCE public.activity_type_id_seq
 ALTER TABLE public.activity_type_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2571 (class 0 OID 0)
+-- TOC entry 2576 (class 0 OID 0)
 -- Dependencies: 190
 -- Name: activity_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -664,7 +664,7 @@ CREATE TABLE public.activity_visitor_register (
 ALTER TABLE public.activity_visitor_register OWNER TO postgres;
 
 --
--- TOC entry 2572 (class 0 OID 0)
+-- TOC entry 2577 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: TABLE activity_visitor_register; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -673,7 +673,7 @@ COMMENT ON TABLE public.activity_visitor_register IS 'журнал';
 
 
 --
--- TOC entry 2573 (class 0 OID 0)
+-- TOC entry 2578 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: COLUMN activity_visitor_register.event; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -682,7 +682,7 @@ COMMENT ON COLUMN public.activity_visitor_register.event IS 'событие';
 
 
 --
--- TOC entry 2574 (class 0 OID 0)
+-- TOC entry 2579 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: COLUMN activity_visitor_register.visitor_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -721,7 +721,7 @@ CREATE TABLE public.agency (
 ALTER TABLE public.agency OWNER TO postgres;
 
 --
--- TOC entry 2575 (class 0 OID 0)
+-- TOC entry 2580 (class 0 OID 0)
 -- Dependencies: 192
 -- Name: COLUMN agency.state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -763,7 +763,7 @@ CREATE SEQUENCE public.agency_district_id_seq
 ALTER TABLE public.agency_district_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2576 (class 0 OID 0)
+-- TOC entry 2581 (class 0 OID 0)
 -- Dependencies: 194
 -- Name: agency_district_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -787,7 +787,7 @@ CREATE SEQUENCE public.agency_id_seq
 ALTER TABLE public.agency_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2577 (class 0 OID 0)
+-- TOC entry 2582 (class 0 OID 0)
 -- Dependencies: 195
 -- Name: agency_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -816,7 +816,7 @@ CREATE TABLE public.agency_management (
 ALTER TABLE public.agency_management OWNER TO postgres;
 
 --
--- TOC entry 2578 (class 0 OID 0)
+-- TOC entry 2583 (class 0 OID 0)
 -- Dependencies: 196
 -- Name: TABLE agency_management; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -825,7 +825,7 @@ COMMENT ON TABLE public.agency_management IS 'Руководство учреж�
 
 
 --
--- TOC entry 2579 (class 0 OID 0)
+-- TOC entry 2584 (class 0 OID 0)
 -- Dependencies: 196
 -- Name: COLUMN agency_management.state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -850,7 +850,7 @@ CREATE SEQUENCE public.agency_management_id_seq
 ALTER TABLE public.agency_management_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2580 (class 0 OID 0)
+-- TOC entry 2585 (class 0 OID 0)
 -- Dependencies: 197
 -- Name: agency_management_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -876,7 +876,7 @@ CREATE TABLE public.agency_photo (
 ALTER TABLE public.agency_photo OWNER TO postgres;
 
 --
--- TOC entry 2581 (class 0 OID 0)
+-- TOC entry 2586 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: COLUMN agency_photo.state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -903,7 +903,7 @@ CREATE TABLE public.agency_photo_album (
 ALTER TABLE public.agency_photo_album OWNER TO postgres;
 
 --
--- TOC entry 2582 (class 0 OID 0)
+-- TOC entry 2587 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: TABLE agency_photo_album; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -912,7 +912,7 @@ COMMENT ON TABLE public.agency_photo_album IS 'Фотогалерея';
 
 
 --
--- TOC entry 2583 (class 0 OID 0)
+-- TOC entry 2588 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: COLUMN agency_photo_album.state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -938,7 +938,7 @@ CREATE SEQUENCE public.agency_photo_album_id_seq
 ALTER TABLE public.agency_photo_album_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2584 (class 0 OID 0)
+-- TOC entry 2589 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: agency_photo_album_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -962,7 +962,7 @@ CREATE SEQUENCE public.agency_photo_id_seq
 ALTER TABLE public.agency_photo_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2585 (class 0 OID 0)
+-- TOC entry 2590 (class 0 OID 0)
 -- Dependencies: 199
 -- Name: agency_photo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1003,7 +1003,7 @@ CREATE TABLE public.city_activity (
 ALTER TABLE public.city_activity OWNER TO postgres;
 
 --
--- TOC entry 2586 (class 0 OID 0)
+-- TOC entry 2591 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: TABLE city_activity; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1012,7 +1012,7 @@ COMMENT ON TABLE public.city_activity IS 'Общегородские мероп�
 
 
 --
--- TOC entry 2587 (class 0 OID 0)
+-- TOC entry 2592 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.agency_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1021,7 +1021,7 @@ COMMENT ON COLUMN public.city_activity.agency_id IS 'учреждение';
 
 
 --
--- TOC entry 2588 (class 0 OID 0)
+-- TOC entry 2593 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.type_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1030,7 +1030,7 @@ COMMENT ON COLUMN public.city_activity.type_id IS 'тип мероприятия
 
 
 --
--- TOC entry 2589 (class 0 OID 0)
+-- TOC entry 2594 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.start_date; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1039,7 +1039,7 @@ COMMENT ON COLUMN public.city_activity.start_date IS 'дата начала';
 
 
 --
--- TOC entry 2590 (class 0 OID 0)
+-- TOC entry 2595 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.end_date; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1048,7 +1048,7 @@ COMMENT ON COLUMN public.city_activity.end_date IS 'дата окончания'
 
 
 --
--- TOC entry 2591 (class 0 OID 0)
+-- TOC entry 2596 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.name; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1057,7 +1057,7 @@ COMMENT ON COLUMN public.city_activity.name IS 'тема мероприятия'
 
 
 --
--- TOC entry 2592 (class 0 OID 0)
+-- TOC entry 2597 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.description; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1066,7 +1066,7 @@ COMMENT ON COLUMN public.city_activity.description IS 'описание';
 
 
 --
--- TOC entry 2593 (class 0 OID 0)
+-- TOC entry 2598 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.report; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1075,7 +1075,7 @@ COMMENT ON COLUMN public.city_activity.report IS 'отчёт';
 
 
 --
--- TOC entry 2594 (class 0 OID 0)
+-- TOC entry 2599 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.email; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1084,7 +1084,7 @@ COMMENT ON COLUMN public.city_activity.email IS 'эл.почта';
 
 
 --
--- TOC entry 2595 (class 0 OID 0)
+-- TOC entry 2600 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.phone; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1093,7 +1093,7 @@ COMMENT ON COLUMN public.city_activity.phone IS 'телефон';
 
 
 --
--- TOC entry 2596 (class 0 OID 0)
+-- TOC entry 2601 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.schedule; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1102,7 +1102,7 @@ COMMENT ON COLUMN public.city_activity.schedule IS 'расписание';
 
 
 --
--- TOC entry 2597 (class 0 OID 0)
+-- TOC entry 2602 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.category_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1111,7 +1111,7 @@ COMMENT ON COLUMN public.city_activity.category_id IS 'категория общ
 
 
 --
--- TOC entry 2598 (class 0 OID 0)
+-- TOC entry 2603 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.place; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1120,7 +1120,7 @@ COMMENT ON COLUMN public.city_activity.place IS 'Место проведения
 
 
 --
--- TOC entry 2599 (class 0 OID 0)
+-- TOC entry 2604 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.duration; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1129,7 +1129,7 @@ COMMENT ON COLUMN public.city_activity.duration IS 'Продолжительно
 
 
 --
--- TOC entry 2600 (class 0 OID 0)
+-- TOC entry 2605 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1139,7 +1139,7 @@ COMMENT ON COLUMN public.city_activity.state IS '0 = состояние неиз
 
 
 --
--- TOC entry 2601 (class 0 OID 0)
+-- TOC entry 2606 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: COLUMN city_activity.execution_state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1165,7 +1165,7 @@ CREATE TABLE public.city_activity_category (
 ALTER TABLE public.city_activity_category OWNER TO postgres;
 
 --
--- TOC entry 2602 (class 0 OID 0)
+-- TOC entry 2607 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: TABLE city_activity_category; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1174,7 +1174,7 @@ COMMENT ON TABLE public.city_activity_category IS 'Категории общег
 
 
 --
--- TOC entry 2603 (class 0 OID 0)
+-- TOC entry 2608 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: COLUMN city_activity_category.name; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1183,7 +1183,7 @@ COMMENT ON COLUMN public.city_activity_category.name IS 'наименовани�
 
 
 --
--- TOC entry 2604 (class 0 OID 0)
+-- TOC entry 2609 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: COLUMN city_activity_category.icon_path; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1192,7 +1192,7 @@ COMMENT ON COLUMN public.city_activity_category.icon_path IS 'иконка';
 
 
 --
--- TOC entry 2605 (class 0 OID 0)
+-- TOC entry 2610 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: COLUMN city_activity_category.image_path; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1216,7 +1216,7 @@ CREATE SEQUENCE public.city_activity_category_id_seq
 ALTER TABLE public.city_activity_category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2606 (class 0 OID 0)
+-- TOC entry 2611 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: city_activity_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1240,7 +1240,7 @@ CREATE SEQUENCE public.city_activity_id_seq
 ALTER TABLE public.city_activity_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2607 (class 0 OID 0)
+-- TOC entry 2612 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: city_activity_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1281,7 +1281,7 @@ CREATE SEQUENCE public.city_activity_photo_id_seq
 ALTER TABLE public.city_activity_photo_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2608 (class 0 OID 0)
+-- TOC entry 2613 (class 0 OID 0)
 -- Dependencies: 231
 -- Name: city_activity_photo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1321,7 +1321,7 @@ CREATE SEQUENCE public.city_region_id_seq
 ALTER TABLE public.city_region_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2609 (class 0 OID 0)
+-- TOC entry 2614 (class 0 OID 0)
 -- Dependencies: 201
 -- Name: city_region_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1350,7 +1350,7 @@ CREATE TABLE public.department_management (
 ALTER TABLE public.department_management OWNER TO postgres;
 
 --
--- TOC entry 2610 (class 0 OID 0)
+-- TOC entry 2615 (class 0 OID 0)
 -- Dependencies: 240
 -- Name: TABLE department_management; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1359,7 +1359,7 @@ COMMENT ON TABLE public.department_management IS 'Руководство деп�
 
 
 --
--- TOC entry 2611 (class 0 OID 0)
+-- TOC entry 2616 (class 0 OID 0)
 -- Dependencies: 240
 -- Name: COLUMN department_management.state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1384,7 +1384,7 @@ CREATE SEQUENCE public.department_management_id_seq
 ALTER TABLE public.department_management_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2612 (class 0 OID 0)
+-- TOC entry 2617 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: department_management_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1425,7 +1425,7 @@ CREATE TABLE public.long_life_activity (
 ALTER TABLE public.long_life_activity OWNER TO postgres;
 
 --
--- TOC entry 2613 (class 0 OID 0)
+-- TOC entry 2618 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: TABLE long_life_activity; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1434,7 +1434,7 @@ COMMENT ON TABLE public.long_life_activity IS 'Мероприятия "Моск�
 
 
 --
--- TOC entry 2614 (class 0 OID 0)
+-- TOC entry 2619 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.agency_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1443,7 +1443,7 @@ COMMENT ON COLUMN public.long_life_activity.agency_id IS 'учреждение';
 
 
 --
--- TOC entry 2615 (class 0 OID 0)
+-- TOC entry 2620 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.type_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1452,7 +1452,7 @@ COMMENT ON COLUMN public.long_life_activity.type_id IS 'тип мероприя�
 
 
 --
--- TOC entry 2616 (class 0 OID 0)
+-- TOC entry 2621 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.start_date; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1461,7 +1461,7 @@ COMMENT ON COLUMN public.long_life_activity.start_date IS 'дата начала
 
 
 --
--- TOC entry 2617 (class 0 OID 0)
+-- TOC entry 2622 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.end_date; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1470,7 +1470,7 @@ COMMENT ON COLUMN public.long_life_activity.end_date IS 'дата окончан
 
 
 --
--- TOC entry 2618 (class 0 OID 0)
+-- TOC entry 2623 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.name; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1479,7 +1479,7 @@ COMMENT ON COLUMN public.long_life_activity.name IS 'тема мероприят
 
 
 --
--- TOC entry 2619 (class 0 OID 0)
+-- TOC entry 2624 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.description; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1488,7 +1488,7 @@ COMMENT ON COLUMN public.long_life_activity.description IS 'описание';
 
 
 --
--- TOC entry 2620 (class 0 OID 0)
+-- TOC entry 2625 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.report; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1497,7 +1497,7 @@ COMMENT ON COLUMN public.long_life_activity.report IS 'отчёт';
 
 
 --
--- TOC entry 2621 (class 0 OID 0)
+-- TOC entry 2626 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.email; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1506,7 +1506,7 @@ COMMENT ON COLUMN public.long_life_activity.email IS 'эл.почта';
 
 
 --
--- TOC entry 2622 (class 0 OID 0)
+-- TOC entry 2627 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.phone; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1515,7 +1515,7 @@ COMMENT ON COLUMN public.long_life_activity.phone IS 'телефон';
 
 
 --
--- TOC entry 2623 (class 0 OID 0)
+-- TOC entry 2628 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.schedule; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1524,7 +1524,7 @@ COMMENT ON COLUMN public.long_life_activity.schedule IS 'расписание';
 
 
 --
--- TOC entry 2624 (class 0 OID 0)
+-- TOC entry 2629 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.category_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1533,7 +1533,7 @@ COMMENT ON COLUMN public.long_life_activity.category_id IS 'категория �
 
 
 --
--- TOC entry 2625 (class 0 OID 0)
+-- TOC entry 2630 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.place; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1542,7 +1542,7 @@ COMMENT ON COLUMN public.long_life_activity.place IS 'Место проведе�
 
 
 --
--- TOC entry 2626 (class 0 OID 0)
+-- TOC entry 2631 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.duration; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1551,7 +1551,7 @@ COMMENT ON COLUMN public.long_life_activity.duration IS 'Продолжител�
 
 
 --
--- TOC entry 2627 (class 0 OID 0)
+-- TOC entry 2632 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1561,7 +1561,7 @@ COMMENT ON COLUMN public.long_life_activity.state IS '0 = состояние н�
 
 
 --
--- TOC entry 2628 (class 0 OID 0)
+-- TOC entry 2633 (class 0 OID 0)
 -- Dependencies: 236
 -- Name: COLUMN long_life_activity.execution_state; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1587,7 +1587,7 @@ CREATE TABLE public.long_life_activity_category (
 ALTER TABLE public.long_life_activity_category OWNER TO postgres;
 
 --
--- TOC entry 2629 (class 0 OID 0)
+-- TOC entry 2634 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: TABLE long_life_activity_category; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1596,7 +1596,7 @@ COMMENT ON TABLE public.long_life_activity_category IS 'Категории ме�
 
 
 --
--- TOC entry 2630 (class 0 OID 0)
+-- TOC entry 2635 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: COLUMN long_life_activity_category.name; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1605,7 +1605,7 @@ COMMENT ON COLUMN public.long_life_activity_category.name IS 'наименова
 
 
 --
--- TOC entry 2631 (class 0 OID 0)
+-- TOC entry 2636 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: COLUMN long_life_activity_category.icon_path; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1614,7 +1614,7 @@ COMMENT ON COLUMN public.long_life_activity_category.icon_path IS 'иконка'
 
 
 --
--- TOC entry 2632 (class 0 OID 0)
+-- TOC entry 2637 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: COLUMN long_life_activity_category.image_path; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1638,7 +1638,7 @@ CREATE SEQUENCE public.long_life_activity_category_id_seq
 ALTER TABLE public.long_life_activity_category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2633 (class 0 OID 0)
+-- TOC entry 2638 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: long_life_activity_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1662,7 +1662,7 @@ CREATE SEQUENCE public.long_life_activity_id_seq
 ALTER TABLE public.long_life_activity_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2634 (class 0 OID 0)
+-- TOC entry 2639 (class 0 OID 0)
 -- Dependencies: 235
 -- Name: long_life_activity_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1703,7 +1703,7 @@ CREATE SEQUENCE public.long_life_activity_photo_id_seq
 ALTER TABLE public.long_life_activity_photo_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2635 (class 0 OID 0)
+-- TOC entry 2640 (class 0 OID 0)
 -- Dependencies: 237
 -- Name: long_life_activity_photo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1741,7 +1741,7 @@ CREATE SEQUENCE public.screen_file_id_seq
 ALTER TABLE public.screen_file_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2636 (class 0 OID 0)
+-- TOC entry 2641 (class 0 OID 0)
 -- Dependencies: 203
 -- Name: screen_file_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1781,7 +1781,7 @@ CREATE SEQUENCE public.screen_saver_id_seq
 ALTER TABLE public.screen_saver_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2637 (class 0 OID 0)
+-- TOC entry 2642 (class 0 OID 0)
 -- Dependencies: 205
 -- Name: screen_saver_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1821,7 +1821,7 @@ CREATE TABLE public.service (
 ALTER TABLE public.service OWNER TO postgres;
 
 --
--- TOC entry 2638 (class 0 OID 0)
+-- TOC entry 2643 (class 0 OID 0)
 -- Dependencies: 206
 -- Name: COLUMN service.periodicity_id; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1830,7 +1830,7 @@ COMMENT ON COLUMN public.service.periodicity_id IS 'Периодичность �
 
 
 --
--- TOC entry 2639 (class 0 OID 0)
+-- TOC entry 2644 (class 0 OID 0)
 -- Dependencies: 206
 -- Name: COLUMN service.frequence; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -1870,7 +1870,7 @@ CREATE SEQUENCE public.service_category_id_seq
 ALTER TABLE public.service_category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2640 (class 0 OID 0)
+-- TOC entry 2645 (class 0 OID 0)
 -- Dependencies: 208
 -- Name: service_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1907,7 +1907,7 @@ CREATE SEQUENCE public.service_chargeable_type_id_seq
 ALTER TABLE public.service_chargeable_type_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2641 (class 0 OID 0)
+-- TOC entry 2646 (class 0 OID 0)
 -- Dependencies: 210
 -- Name: service_chargeable_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1946,7 +1946,7 @@ CREATE SEQUENCE public.service_chargeable_type_to_service_id_seq
 ALTER TABLE public.service_chargeable_type_to_service_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2642 (class 0 OID 0)
+-- TOC entry 2647 (class 0 OID 0)
 -- Dependencies: 212
 -- Name: service_chargeable_type_to_service_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1970,7 +1970,7 @@ CREATE SEQUENCE public.service_id_seq
 ALTER TABLE public.service_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2643 (class 0 OID 0)
+-- TOC entry 2648 (class 0 OID 0)
 -- Dependencies: 213
 -- Name: service_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2007,7 +2007,7 @@ CREATE SEQUENCE public.service_location_type_id_seq
 ALTER TABLE public.service_location_type_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2644 (class 0 OID 0)
+-- TOC entry 2649 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: service_location_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2046,7 +2046,7 @@ CREATE SEQUENCE public.service_to_agency_id_seq
 ALTER TABLE public.service_to_agency_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2645 (class 0 OID 0)
+-- TOC entry 2650 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: service_to_agency_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2069,7 +2069,7 @@ CREATE TABLE public.service_tree (
 ALTER TABLE public.service_tree OWNER TO postgres;
 
 --
--- TOC entry 2646 (class 0 OID 0)
+-- TOC entry 2651 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: TABLE service_tree; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -2078,7 +2078,7 @@ COMMENT ON TABLE public.service_tree IS 'дерево групп';
 
 
 --
--- TOC entry 2647 (class 0 OID 0)
+-- TOC entry 2652 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: COLUMN service_tree.ancestor; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -2087,7 +2087,7 @@ COMMENT ON COLUMN public.service_tree.ancestor IS 'предок';
 
 
 --
--- TOC entry 2648 (class 0 OID 0)
+-- TOC entry 2653 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: COLUMN service_tree.descendant; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -2096,7 +2096,7 @@ COMMENT ON COLUMN public.service_tree.descendant IS 'потомок';
 
 
 --
--- TOC entry 2649 (class 0 OID 0)
+-- TOC entry 2654 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: COLUMN service_tree.length; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -2134,7 +2134,7 @@ CREATE SEQUENCE public.service_type_id_pkey
 ALTER TABLE public.service_type_id_pkey OWNER TO postgres;
 
 --
--- TOC entry 2650 (class 0 OID 0)
+-- TOC entry 2655 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: service_type_id_pkey; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2175,7 +2175,7 @@ CREATE SEQUENCE public.sh_list_id_seq
 ALTER TABLE public.sh_list_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2651 (class 0 OID 0)
+-- TOC entry 2656 (class 0 OID 0)
 -- Dependencies: 241
 -- Name: sh_list_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2217,7 +2217,7 @@ CREATE SEQUENCE public.users_id_seq
 ALTER TABLE public.users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2652 (class 0 OID 0)
+-- TOC entry 2657 (class 0 OID 0)
 -- Dependencies: 243
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2244,7 +2244,7 @@ CREATE TABLE public.visitor (
 ALTER TABLE public.visitor OWNER TO postgres;
 
 --
--- TOC entry 2653 (class 0 OID 0)
+-- TOC entry 2658 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: TABLE visitor; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -2253,7 +2253,7 @@ COMMENT ON TABLE public.visitor IS 'Список посетителей меро
 
 
 --
--- TOC entry 2654 (class 0 OID 0)
+-- TOC entry 2659 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: COLUMN visitor.identifier; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -2262,7 +2262,7 @@ COMMENT ON COLUMN public.visitor.identifier IS 'Идентификатор по�
 
 
 --
--- TOC entry 2655 (class 0 OID 0)
+-- TOC entry 2660 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: COLUMN visitor.agency; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -2286,7 +2286,7 @@ CREATE SEQUENCE public.visitor_id_seq
 ALTER TABLE public.visitor_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2656 (class 0 OID 0)
+-- TOC entry 2661 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: visitor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2295,7 +2295,21 @@ ALTER SEQUENCE public.visitor_id_seq OWNED BY public.visitor.id;
 
 
 --
--- TOC entry 2237 (class 2604 OID 16407833)
+-- TOC entry 245 (class 1259 OID 16679522)
+-- Name: weather; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.weather (
+    load_date timestamp without time zone NOT NULL,
+    temperature numeric(5,2),
+    weather_json jsonb
+);
+
+
+ALTER TABLE public.weather OWNER TO postgres;
+
+--
+-- TOC entry 2242 (class 2604 OID 16407833)
 -- Name: activity id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2303,7 +2317,7 @@ ALTER TABLE ONLY public.activity ALTER COLUMN id SET DEFAULT nextval('public.act
 
 
 --
--- TOC entry 2241 (class 2604 OID 16407834)
+-- TOC entry 2246 (class 2604 OID 16407834)
 -- Name: activity_category id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2311,7 +2325,7 @@ ALTER TABLE ONLY public.activity_category ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- TOC entry 2244 (class 2604 OID 16407835)
+-- TOC entry 2249 (class 2604 OID 16407835)
 -- Name: activity_event id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2319,7 +2333,7 @@ ALTER TABLE ONLY public.activity_event ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
--- TOC entry 2282 (class 2604 OID 16629195)
+-- TOC entry 2287 (class 2604 OID 16629195)
 -- Name: activity_periodicity id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2327,7 +2341,7 @@ ALTER TABLE ONLY public.activity_periodicity ALTER COLUMN id SET DEFAULT nextval
 
 
 --
--- TOC entry 2246 (class 2604 OID 16407836)
+-- TOC entry 2251 (class 2604 OID 16407836)
 -- Name: activity_photo id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2335,7 +2349,7 @@ ALTER TABLE ONLY public.activity_photo ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
--- TOC entry 2249 (class 2604 OID 16407837)
+-- TOC entry 2254 (class 2604 OID 16407837)
 -- Name: activity_type id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2343,7 +2357,7 @@ ALTER TABLE ONLY public.activity_type ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 2253 (class 2604 OID 16407838)
+-- TOC entry 2258 (class 2604 OID 16407838)
 -- Name: agency id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2351,7 +2365,7 @@ ALTER TABLE ONLY public.agency ALTER COLUMN id SET DEFAULT nextval('public.agenc
 
 
 --
--- TOC entry 2258 (class 2604 OID 16407839)
+-- TOC entry 2263 (class 2604 OID 16407839)
 -- Name: agency_management id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2359,7 +2373,7 @@ ALTER TABLE ONLY public.agency_management ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- TOC entry 2260 (class 2604 OID 16407840)
+-- TOC entry 2265 (class 2604 OID 16407840)
 -- Name: agency_photo id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2367,7 +2381,7 @@ ALTER TABLE ONLY public.agency_photo ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
--- TOC entry 2283 (class 2604 OID 16652527)
+-- TOC entry 2288 (class 2604 OID 16652527)
 -- Name: agency_photo_album id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2375,7 +2389,7 @@ ALTER TABLE ONLY public.agency_photo_album ALTER COLUMN id SET DEFAULT nextval('
 
 
 --
--- TOC entry 2287 (class 2604 OID 16652640)
+-- TOC entry 2292 (class 2604 OID 16652640)
 -- Name: city_activity id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2383,7 +2397,7 @@ ALTER TABLE ONLY public.city_activity ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 2285 (class 2604 OID 16652626)
+-- TOC entry 2290 (class 2604 OID 16652626)
 -- Name: city_activity_category id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2391,7 +2405,7 @@ ALTER TABLE ONLY public.city_activity_category ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- TOC entry 2291 (class 2604 OID 16652660)
+-- TOC entry 2296 (class 2604 OID 16652660)
 -- Name: city_activity_photo id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2399,7 +2413,7 @@ ALTER TABLE ONLY public.city_activity_photo ALTER COLUMN id SET DEFAULT nextval(
 
 
 --
--- TOC entry 2257 (class 2604 OID 16407841)
+-- TOC entry 2262 (class 2604 OID 16407841)
 -- Name: city_district id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2407,7 +2421,7 @@ ALTER TABLE ONLY public.city_district ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 2263 (class 2604 OID 16407842)
+-- TOC entry 2268 (class 2604 OID 16407842)
 -- Name: city_region id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2415,7 +2429,7 @@ ALTER TABLE ONLY public.city_region ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
--- TOC entry 2300 (class 2604 OID 16652729)
+-- TOC entry 2305 (class 2604 OID 16652729)
 -- Name: department_management id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2423,7 +2437,7 @@ ALTER TABLE ONLY public.department_management ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- TOC entry 2294 (class 2604 OID 16652692)
+-- TOC entry 2299 (class 2604 OID 16652692)
 -- Name: long_life_activity id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2431,7 +2445,7 @@ ALTER TABLE ONLY public.long_life_activity ALTER COLUMN id SET DEFAULT nextval('
 
 
 --
--- TOC entry 2292 (class 2604 OID 16652678)
+-- TOC entry 2297 (class 2604 OID 16652678)
 -- Name: long_life_activity_category id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2439,7 +2453,7 @@ ALTER TABLE ONLY public.long_life_activity_category ALTER COLUMN id SET DEFAULT 
 
 
 --
--- TOC entry 2298 (class 2604 OID 16652712)
+-- TOC entry 2303 (class 2604 OID 16652712)
 -- Name: long_life_activity_photo id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2447,7 +2461,7 @@ ALTER TABLE ONLY public.long_life_activity_photo ALTER COLUMN id SET DEFAULT nex
 
 
 --
--- TOC entry 2264 (class 2604 OID 16407843)
+-- TOC entry 2269 (class 2604 OID 16407843)
 -- Name: screen_file id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2455,7 +2469,7 @@ ALTER TABLE ONLY public.screen_file ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
--- TOC entry 2265 (class 2604 OID 16407844)
+-- TOC entry 2270 (class 2604 OID 16407844)
 -- Name: screen_saver id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2463,7 +2477,7 @@ ALTER TABLE ONLY public.screen_saver ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
--- TOC entry 2270 (class 2604 OID 16407845)
+-- TOC entry 2275 (class 2604 OID 16407845)
 -- Name: service id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2471,7 +2485,7 @@ ALTER TABLE ONLY public.service ALTER COLUMN id SET DEFAULT nextval('public.serv
 
 
 --
--- TOC entry 2271 (class 2604 OID 16407846)
+-- TOC entry 2276 (class 2604 OID 16407846)
 -- Name: service_category id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2479,7 +2493,7 @@ ALTER TABLE ONLY public.service_category ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 2273 (class 2604 OID 16407847)
+-- TOC entry 2278 (class 2604 OID 16407847)
 -- Name: service_chargeable_type id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2487,7 +2501,7 @@ ALTER TABLE ONLY public.service_chargeable_type ALTER COLUMN id SET DEFAULT next
 
 
 --
--- TOC entry 2275 (class 2604 OID 16407848)
+-- TOC entry 2280 (class 2604 OID 16407848)
 -- Name: service_chargeable_type_to_service id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2495,7 +2509,7 @@ ALTER TABLE ONLY public.service_chargeable_type_to_service ALTER COLUMN id SET D
 
 
 --
--- TOC entry 2276 (class 2604 OID 16407849)
+-- TOC entry 2281 (class 2604 OID 16407849)
 -- Name: service_location_type id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2503,7 +2517,7 @@ ALTER TABLE ONLY public.service_location_type ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- TOC entry 2278 (class 2604 OID 16407850)
+-- TOC entry 2283 (class 2604 OID 16407850)
 -- Name: service_to_agency id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2511,7 +2525,7 @@ ALTER TABLE ONLY public.service_to_agency ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- TOC entry 2279 (class 2604 OID 16407851)
+-- TOC entry 2284 (class 2604 OID 16407851)
 -- Name: service_type id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2519,7 +2533,7 @@ ALTER TABLE ONLY public.service_type ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
--- TOC entry 2302 (class 2604 OID 16654518)
+-- TOC entry 2307 (class 2604 OID 16654518)
 -- Name: sh_list id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2527,7 +2541,7 @@ ALTER TABLE ONLY public.sh_list ALTER COLUMN id SET DEFAULT nextval('public.sh_l
 
 
 --
--- TOC entry 2305 (class 2604 OID 16659145)
+-- TOC entry 2310 (class 2604 OID 16659145)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2535,7 +2549,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 2281 (class 2604 OID 16407852)
+-- TOC entry 2286 (class 2604 OID 16407852)
 -- Name: visitor id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2543,7 +2557,7 @@ ALTER TABLE ONLY public.visitor ALTER COLUMN id SET DEFAULT nextval('public.visi
 
 
 --
--- TOC entry 2327 (class 2606 OID 16407854)
+-- TOC entry 2332 (class 2606 OID 16407854)
 -- Name: activity_visitor_register activities_participants_register_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2552,7 +2566,7 @@ ALTER TABLE ONLY public.activity_visitor_register
 
 
 --
--- TOC entry 2312 (class 2606 OID 16407856)
+-- TOC entry 2317 (class 2606 OID 16407856)
 -- Name: activity_category activity_category_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2561,7 +2575,7 @@ ALTER TABLE ONLY public.activity_category
 
 
 --
--- TOC entry 2314 (class 2606 OID 16407858)
+-- TOC entry 2319 (class 2606 OID 16407858)
 -- Name: activity_category activity_category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2570,7 +2584,7 @@ ALTER TABLE ONLY public.activity_category
 
 
 --
--- TOC entry 2316 (class 2606 OID 16407860)
+-- TOC entry 2321 (class 2606 OID 16407860)
 -- Name: activity_event activity_event_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2579,7 +2593,7 @@ ALTER TABLE ONLY public.activity_event
 
 
 --
--- TOC entry 2366 (class 2606 OID 16629200)
+-- TOC entry 2371 (class 2606 OID 16629200)
 -- Name: activity_periodicity activity_periodicity_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2588,7 +2602,7 @@ ALTER TABLE ONLY public.activity_periodicity
 
 
 --
--- TOC entry 2319 (class 2606 OID 16407862)
+-- TOC entry 2324 (class 2606 OID 16407862)
 -- Name: activity_photo activity_photo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2597,7 +2611,7 @@ ALTER TABLE ONLY public.activity_photo
 
 
 --
--- TOC entry 2308 (class 2606 OID 16407864)
+-- TOC entry 2313 (class 2606 OID 16407864)
 -- Name: activity activity_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2606,7 +2620,7 @@ ALTER TABLE ONLY public.activity
 
 
 --
--- TOC entry 2323 (class 2606 OID 16407866)
+-- TOC entry 2328 (class 2606 OID 16407866)
 -- Name: activity_type activity_type_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2615,7 +2629,7 @@ ALTER TABLE ONLY public.activity_type
 
 
 --
--- TOC entry 2325 (class 2606 OID 16407868)
+-- TOC entry 2330 (class 2606 OID 16407868)
 -- Name: activity_type activity_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2624,7 +2638,7 @@ ALTER TABLE ONLY public.activity_type
 
 
 --
--- TOC entry 2332 (class 2606 OID 16407870)
+-- TOC entry 2337 (class 2606 OID 16407870)
 -- Name: city_district agency_district_id_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2633,7 +2647,7 @@ ALTER TABLE ONLY public.city_district
 
 
 --
--- TOC entry 2330 (class 2606 OID 16407872)
+-- TOC entry 2335 (class 2606 OID 16407872)
 -- Name: agency agency_id_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2642,7 +2656,7 @@ ALTER TABLE ONLY public.agency
 
 
 --
--- TOC entry 2334 (class 2606 OID 16407874)
+-- TOC entry 2339 (class 2606 OID 16407874)
 -- Name: agency_management agency_management_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2651,7 +2665,7 @@ ALTER TABLE ONLY public.agency_management
 
 
 --
--- TOC entry 2368 (class 2606 OID 16652532)
+-- TOC entry 2373 (class 2606 OID 16652532)
 -- Name: agency_photo_album agency_photo_album_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2660,7 +2674,7 @@ ALTER TABLE ONLY public.agency_photo_album
 
 
 --
--- TOC entry 2370 (class 2606 OID 16652634)
+-- TOC entry 2375 (class 2606 OID 16652634)
 -- Name: city_activity_category city_activity_category_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2669,7 +2683,7 @@ ALTER TABLE ONLY public.city_activity_category
 
 
 --
--- TOC entry 2372 (class 2606 OID 16652632)
+-- TOC entry 2377 (class 2606 OID 16652632)
 -- Name: city_activity_category city_activity_category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2678,7 +2692,7 @@ ALTER TABLE ONLY public.city_activity_category
 
 
 --
--- TOC entry 2378 (class 2606 OID 16652665)
+-- TOC entry 2383 (class 2606 OID 16652665)
 -- Name: city_activity_photo city_activity_photo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2687,7 +2701,7 @@ ALTER TABLE ONLY public.city_activity_photo
 
 
 --
--- TOC entry 2374 (class 2606 OID 16652647)
+-- TOC entry 2379 (class 2606 OID 16652647)
 -- Name: city_activity city_activity_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2696,7 +2710,7 @@ ALTER TABLE ONLY public.city_activity
 
 
 --
--- TOC entry 2336 (class 2606 OID 16407876)
+-- TOC entry 2341 (class 2606 OID 16407876)
 -- Name: city_region city_region_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2705,7 +2719,7 @@ ALTER TABLE ONLY public.city_region
 
 
 --
--- TOC entry 2392 (class 2606 OID 16652734)
+-- TOC entry 2397 (class 2606 OID 16652734)
 -- Name: department_management department_management_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2714,7 +2728,7 @@ ALTER TABLE ONLY public.department_management
 
 
 --
--- TOC entry 2381 (class 2606 OID 16652686)
+-- TOC entry 2386 (class 2606 OID 16652686)
 -- Name: long_life_activity_category long_life_activity_category_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2723,7 +2737,7 @@ ALTER TABLE ONLY public.long_life_activity_category
 
 
 --
--- TOC entry 2383 (class 2606 OID 16652684)
+-- TOC entry 2388 (class 2606 OID 16652684)
 -- Name: long_life_activity_category long_life_activity_category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2732,7 +2746,7 @@ ALTER TABLE ONLY public.long_life_activity_category
 
 
 --
--- TOC entry 2390 (class 2606 OID 16652717)
+-- TOC entry 2395 (class 2606 OID 16652717)
 -- Name: long_life_activity_photo long_life_activity_photo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2741,7 +2755,7 @@ ALTER TABLE ONLY public.long_life_activity_photo
 
 
 --
--- TOC entry 2387 (class 2606 OID 16652699)
+-- TOC entry 2392 (class 2606 OID 16652699)
 -- Name: long_life_activity long_life_activity_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2750,7 +2764,7 @@ ALTER TABLE ONLY public.long_life_activity
 
 
 --
--- TOC entry 2338 (class 2606 OID 16407878)
+-- TOC entry 2343 (class 2606 OID 16407878)
 -- Name: screen_file screen_file_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2759,7 +2773,7 @@ ALTER TABLE ONLY public.screen_file
 
 
 --
--- TOC entry 2341 (class 2606 OID 16407880)
+-- TOC entry 2346 (class 2606 OID 16407880)
 -- Name: screen_saver screen_saver_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2768,7 +2782,7 @@ ALTER TABLE ONLY public.screen_saver
 
 
 --
--- TOC entry 2345 (class 2606 OID 16407882)
+-- TOC entry 2350 (class 2606 OID 16407882)
 -- Name: service_category service_category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2777,7 +2791,7 @@ ALTER TABLE ONLY public.service_category
 
 
 --
--- TOC entry 2347 (class 2606 OID 16407884)
+-- TOC entry 2352 (class 2606 OID 16407884)
 -- Name: service_chargeable_type service_chargeable_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2786,7 +2800,7 @@ ALTER TABLE ONLY public.service_chargeable_type
 
 
 --
--- TOC entry 2350 (class 2606 OID 16407886)
+-- TOC entry 2355 (class 2606 OID 16407886)
 -- Name: service_chargeable_type_to_service service_chargeable_type_to_service_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2795,7 +2809,7 @@ ALTER TABLE ONLY public.service_chargeable_type_to_service
 
 
 --
--- TOC entry 2352 (class 2606 OID 16407896)
+-- TOC entry 2357 (class 2606 OID 16407896)
 -- Name: service_location_type service_location_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2804,7 +2818,7 @@ ALTER TABLE ONLY public.service_location_type
 
 
 --
--- TOC entry 2343 (class 2606 OID 16407888)
+-- TOC entry 2348 (class 2606 OID 16407888)
 -- Name: service service_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2813,7 +2827,7 @@ ALTER TABLE ONLY public.service
 
 
 --
--- TOC entry 2354 (class 2606 OID 16407892)
+-- TOC entry 2359 (class 2606 OID 16407892)
 -- Name: service_to_agency service_to_agency_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2822,7 +2836,7 @@ ALTER TABLE ONLY public.service_to_agency
 
 
 --
--- TOC entry 2360 (class 2606 OID 16407894)
+-- TOC entry 2365 (class 2606 OID 16407894)
 -- Name: service_tree service_tree_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2831,7 +2845,7 @@ ALTER TABLE ONLY public.service_tree
 
 
 --
--- TOC entry 2362 (class 2606 OID 16407890)
+-- TOC entry 2367 (class 2606 OID 16407890)
 -- Name: service_type service_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2840,7 +2854,7 @@ ALTER TABLE ONLY public.service_type
 
 
 --
--- TOC entry 2394 (class 2606 OID 16654525)
+-- TOC entry 2399 (class 2606 OID 16654525)
 -- Name: sh_list sh_list_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2849,7 +2863,7 @@ ALTER TABLE ONLY public.sh_list
 
 
 --
--- TOC entry 2396 (class 2606 OID 16659148)
+-- TOC entry 2401 (class 2606 OID 16659148)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2858,7 +2872,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 2364 (class 2606 OID 16407898)
+-- TOC entry 2369 (class 2606 OID 16407898)
 -- Name: visitor visitor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2867,7 +2881,7 @@ ALTER TABLE ONLY public.visitor
 
 
 --
--- TOC entry 2328 (class 1259 OID 16407899)
+-- TOC entry 2333 (class 1259 OID 16407899)
 -- Name: agency_headagency_id; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2875,7 +2889,7 @@ CREATE INDEX agency_headagency_id ON public.agency USING btree (headagency_id);
 
 
 --
--- TOC entry 2309 (class 1259 OID 16407900)
+-- TOC entry 2314 (class 1259 OID 16407900)
 -- Name: fki_activity_agency_id_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2883,7 +2897,7 @@ CREATE INDEX fki_activity_agency_id_fkey ON public.activity USING btree (agency_
 
 
 --
--- TOC entry 2317 (class 1259 OID 16407901)
+-- TOC entry 2322 (class 1259 OID 16407901)
 -- Name: fki_activity_event_activity_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2891,7 +2905,7 @@ CREATE INDEX fki_activity_event_activity_fkey ON public.activity_event USING btr
 
 
 --
--- TOC entry 2320 (class 1259 OID 16407902)
+-- TOC entry 2325 (class 1259 OID 16407902)
 -- Name: fki_activity_photo_activity_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2899,7 +2913,7 @@ CREATE INDEX fki_activity_photo_activity_fkey ON public.activity_photo USING btr
 
 
 --
--- TOC entry 2321 (class 1259 OID 16652592)
+-- TOC entry 2326 (class 1259 OID 16652592)
 -- Name: fki_activity_photo_event_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2907,7 +2921,7 @@ CREATE INDEX fki_activity_photo_event_fkey ON public.activity_photo USING btree 
 
 
 --
--- TOC entry 2310 (class 1259 OID 16407904)
+-- TOC entry 2315 (class 1259 OID 16407904)
 -- Name: fki_activity_type_id_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2915,7 +2929,7 @@ CREATE INDEX fki_activity_type_id_fkey ON public.activity USING btree (type_id);
 
 
 --
--- TOC entry 2375 (class 1259 OID 16652653)
+-- TOC entry 2380 (class 1259 OID 16652653)
 -- Name: fki_city_activity_agency_id_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2923,7 +2937,7 @@ CREATE INDEX fki_city_activity_agency_id_fkey ON public.city_activity USING btre
 
 
 --
--- TOC entry 2379 (class 1259 OID 16652671)
+-- TOC entry 2384 (class 1259 OID 16652671)
 -- Name: fki_city_activity_photo_activity_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2931,7 +2945,7 @@ CREATE INDEX fki_city_activity_photo_activity_fkey ON public.city_activity_photo
 
 
 --
--- TOC entry 2376 (class 1259 OID 16652654)
+-- TOC entry 2381 (class 1259 OID 16652654)
 -- Name: fki_city_activity_type_id_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2939,7 +2953,7 @@ CREATE INDEX fki_city_activity_type_id_fkey ON public.city_activity USING btree 
 
 
 --
--- TOC entry 2384 (class 1259 OID 16652705)
+-- TOC entry 2389 (class 1259 OID 16652705)
 -- Name: fki_long_life_activity_agency_id_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2947,7 +2961,7 @@ CREATE INDEX fki_long_life_activity_agency_id_fkey ON public.long_life_activity 
 
 
 --
--- TOC entry 2388 (class 1259 OID 16652723)
+-- TOC entry 2393 (class 1259 OID 16652723)
 -- Name: fki_long_life_activity_photo_activity_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2955,7 +2969,7 @@ CREATE INDEX fki_long_life_activity_photo_activity_fkey ON public.long_life_acti
 
 
 --
--- TOC entry 2385 (class 1259 OID 16652706)
+-- TOC entry 2390 (class 1259 OID 16652706)
 -- Name: fki_long_life_activity_type_id_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2963,7 +2977,7 @@ CREATE INDEX fki_long_life_activity_type_id_fkey ON public.long_life_activity US
 
 
 --
--- TOC entry 2348 (class 1259 OID 16407905)
+-- TOC entry 2353 (class 1259 OID 16407905)
 -- Name: fki_service_chargeable_type_to_service_chargeable_type_id_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2971,7 +2985,7 @@ CREATE INDEX fki_service_chargeable_type_to_service_chargeable_type_id_fkey ON p
 
 
 --
--- TOC entry 2356 (class 1259 OID 16407906)
+-- TOC entry 2361 (class 1259 OID 16407906)
 -- Name: fki_service_tree_ancestor_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2979,7 +2993,7 @@ CREATE INDEX fki_service_tree_ancestor_fkey ON public.service_tree USING btree (
 
 
 --
--- TOC entry 2357 (class 1259 OID 16407907)
+-- TOC entry 2362 (class 1259 OID 16407907)
 -- Name: fki_service_tree_descedant_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2987,7 +3001,7 @@ CREATE INDEX fki_service_tree_descedant_fkey ON public.service_tree USING btree 
 
 
 --
--- TOC entry 2339 (class 1259 OID 16407908)
+-- TOC entry 2344 (class 1259 OID 16407908)
 -- Name: screen_file_screensaver_id; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2995,7 +3009,7 @@ CREATE INDEX screen_file_screensaver_id ON public.screen_file USING btree (scree
 
 
 --
--- TOC entry 2355 (class 1259 OID 16407909)
+-- TOC entry 2360 (class 1259 OID 16407909)
 -- Name: service_to_agency_service_id; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3003,7 +3017,7 @@ CREATE UNIQUE INDEX service_to_agency_service_id ON public.service_to_agency USI
 
 
 --
--- TOC entry 2358 (class 1259 OID 16407910)
+-- TOC entry 2363 (class 1259 OID 16407910)
 -- Name: service_tree_path_length_idx; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3011,7 +3025,7 @@ CREATE INDEX service_tree_path_length_idx ON public.service_tree USING btree (le
 
 
 --
--- TOC entry 2402 (class 2606 OID 16407911)
+-- TOC entry 2407 (class 2606 OID 16407911)
 -- Name: activity_visitor_register activities_participants_register_event_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3020,7 +3034,7 @@ ALTER TABLE ONLY public.activity_visitor_register
 
 
 --
--- TOC entry 2403 (class 2606 OID 16407916)
+-- TOC entry 2408 (class 2606 OID 16407916)
 -- Name: activity_visitor_register activities_participants_register_participant_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3029,7 +3043,7 @@ ALTER TABLE ONLY public.activity_visitor_register
 
 
 --
--- TOC entry 2397 (class 2606 OID 16407921)
+-- TOC entry 2402 (class 2606 OID 16407921)
 -- Name: activity activity_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3038,7 +3052,7 @@ ALTER TABLE ONLY public.activity
 
 
 --
--- TOC entry 2399 (class 2606 OID 16407926)
+-- TOC entry 2404 (class 2606 OID 16407926)
 -- Name: activity_event activity_event_activity_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3047,7 +3061,7 @@ ALTER TABLE ONLY public.activity_event
 
 
 --
--- TOC entry 2400 (class 2606 OID 16407931)
+-- TOC entry 2405 (class 2606 OID 16407931)
 -- Name: activity_photo activity_photo_activity_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3056,7 +3070,7 @@ ALTER TABLE ONLY public.activity_photo
 
 
 --
--- TOC entry 2401 (class 2606 OID 16652593)
+-- TOC entry 2406 (class 2606 OID 16652593)
 -- Name: activity_photo activity_photo_event_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3065,7 +3079,7 @@ ALTER TABLE ONLY public.activity_photo
 
 
 --
--- TOC entry 2398 (class 2606 OID 16407941)
+-- TOC entry 2403 (class 2606 OID 16407941)
 -- Name: activity activity_type_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3074,7 +3088,7 @@ ALTER TABLE ONLY public.activity
 
 
 --
--- TOC entry 2407 (class 2606 OID 16652666)
+-- TOC entry 2412 (class 2606 OID 16652666)
 -- Name: city_activity_photo city_activity_photo_activity_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3083,7 +3097,7 @@ ALTER TABLE ONLY public.city_activity_photo
 
 
 --
--- TOC entry 2408 (class 2606 OID 16652718)
+-- TOC entry 2413 (class 2606 OID 16652718)
 -- Name: long_life_activity_photo long_life_activity_photo_activity_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3092,7 +3106,7 @@ ALTER TABLE ONLY public.long_life_activity_photo
 
 
 --
--- TOC entry 2404 (class 2606 OID 16407946)
+-- TOC entry 2409 (class 2606 OID 16407946)
 -- Name: service_chargeable_type_to_service service_chargeable_type_to_service_chargeable_type_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3101,7 +3115,7 @@ ALTER TABLE ONLY public.service_chargeable_type_to_service
 
 
 --
--- TOC entry 2405 (class 2606 OID 16407951)
+-- TOC entry 2410 (class 2606 OID 16407951)
 -- Name: service_tree srv_tree_ancestor_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3110,7 +3124,7 @@ ALTER TABLE ONLY public.service_tree
 
 
 --
--- TOC entry 2406 (class 2606 OID 16407956)
+-- TOC entry 2411 (class 2606 OID 16407956)
 -- Name: service_tree srv_tree_descedant_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3119,7 +3133,7 @@ ALTER TABLE ONLY public.service_tree
 
 
 --
--- TOC entry 2530 (class 0 OID 0)
+-- TOC entry 2535 (class 0 OID 0)
 -- Dependencies: 7
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -3130,7 +3144,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2018-11-01 15:26:08 MSK
+-- Completed on 2018-12-06 13:54:26 MSK
 
 --
 -- PostgreSQL database dump complete
