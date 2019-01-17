@@ -136,13 +136,13 @@
                     <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Электронная почта</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="www">
+                            <input type="text" class="form-control" name="email">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Сайт</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="email">
+                            <input type="text" class="form-control" name="www">
                         </div>
                     </div>
 
