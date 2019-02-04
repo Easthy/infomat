@@ -26,7 +26,8 @@ SELECT
     a.category_id,
     ac.image_path as category_image,
     ac.icon_path as category_icon,
-    ag.shortname as ag_shortname
+    ag.shortname as ag_shortname,
+    a.agency_id
 FROM
     public.activity a
 LEFT JOIN public.activity_category ac
@@ -55,7 +56,8 @@ SELECT
     a.category_id,
     ac.image_path as category_image,
     ac.icon_path as category_icon,
-    ag.shortname as ag_shortname
+    ag.shortname as ag_shortname,
+    a.agency_id
 FROM
     public.activity a
 LEFT JOIN public.activity_category ac
