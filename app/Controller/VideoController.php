@@ -55,7 +55,7 @@ class VideoController extends AppController {
 		$this->render('/Layouts/ajax', 'ajax');
 
 		$ag_id = $_POST['ag_id'];
-		AppModel::uploadFile('video/agency_'.$ag_id.DS.'appeal');
+		AppModel::uploadFile('video/agency_'.$ag_id.DS.'appeal/');
 		
 		echo 'success';
 	}
